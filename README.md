@@ -1,4 +1,4 @@
-# QuizApp - Spring 2022
+# QuizApp - Fall 2022
 
 ## Link to GitHub Master Branch
 
