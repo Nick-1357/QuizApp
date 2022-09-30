@@ -1,9 +1,5 @@
 # QuizApp - Fall 2022
 
-## Link to GitHub Master Branch
-
-https://github.gatech.edu/VIP-ITS/QuizApp-Spring-2022
-
 ## Setup
 
 **App:** We used Android Studio to develop the app. After downloading Android Studio and cloning the repo, load the QuizApp folder into Android Studio as a project. You likely will need to “Clear Caches and Restart” at this time. Add a virtual device of your choosing, using R as the Android version for the device. An excellent tutorial on getting started with Android Studio can be found here: https://youtu.be/jqB3r_16WqA
