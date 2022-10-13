@@ -3,6 +3,13 @@ plugins {
     //id 'realm-android'
 }
 
+task prepareKotlinBuildScriptModel {
+
+}
+
+task wrapper(type: Wrapper){
+    gradleVersion = '7.2'
+}
 android {
     compileSdk 30
 

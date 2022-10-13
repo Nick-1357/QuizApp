@@ -267,6 +267,7 @@ app.post('/updateUserName/:userId/:name', async function(req, res){
 
 //retrieves user
 app.get('/getUser/:userId', async function(req, res){
+
     User.findOne({userId: req.params.userId})
     .then( user => {
         res.send(user)
@@ -342,7 +343,6 @@ const createQuizAttempt = (req, res) => {
     });
     return quizattempt;
 }
-
 app.listen(3000, ()=>console.log('Listening on port 3000'));
 
 
