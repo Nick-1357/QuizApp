@@ -98,7 +98,7 @@ These files are the schemas/models for the appropriate classes/collections being
 ## Spring 2022 Team Members
 
 - Sanjit Pingili
-- Khushi Magiawala
+- Sahana Krishnan
 - Krishan Patel
 - Sakshi Deshpande
 - Abdulaziz Memesh
