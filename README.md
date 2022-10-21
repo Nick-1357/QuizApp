@@ -95,13 +95,18 @@ This file contains the endpoints that query/update the database according to the
 ### `UserAnswer.js, User.js, Question.js, QuizAttempt.js`
 These files are the schemas/models for the appropriate classes/collections being used in the QuizApp and being stored in the database. There may be need for more schemas based on the types of endpoints written in the future.
 
-## Spring 2022 Team Members
+## Fall 2022 Team Members
 
 - Sanjit Pingili
 - Khushi Magiawala
 - Krishan Patel
 - Sakshi Deshpande
 - Abdulaziz Memesh
-- Neha Lalani
+- Rishi Nopany
+- Sanjit Pingli
+- Samarth Parameshwar
+- Sahana Krishnan
+- Varun Patel
+- Shreekrishna Bhat
 
 ## [Figma Link to Wireframing](https://www.figma.com/file/aupRmO6UwfnjnlzystVvnp/VIP-Quiz-App-Designs?node-id=34%3A1066)
