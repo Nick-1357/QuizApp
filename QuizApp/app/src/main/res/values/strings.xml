@@ -2,13 +2,17 @@
 
     <string name="app_name">QuizApp</string>
 
+
+    <!-- Welcome Screen -->
+    <string name="welcome_quiz_app">Welcome to Quiz App, click the button to get started</string>
+    <string name="welcome_button">Get Started</string>
     <!-- Login Screen -->
     <string name="quiz_app_login_title">Quiz App</string>
     <string name="quiz_app_description">Welcome to the VIP-ITS Quiz App. Test your knowledge today by logging in!</string>
     <string name="login_tagline">powered by VIP-ITS</string>
     <string name="login_username">Enter your username</string>
     <string name="login_password">password</string>
-    <string name="login_logo_contentDescription">This is the logo for the app.</string>
+    <string name="login_logo_contentDescription">QuizApp Logo</string>
     <string name="login_button">Login</string>
     <string name="login_forgot_pass_button">Forgot Password</string>
 
@@ -84,5 +88,14 @@
     <string name="enter_answer_here">Enter Answer Here</string>
     <string name="help">Help</string>
     <string name="question_will_be_displayed_here">Question will be displayed here</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>
