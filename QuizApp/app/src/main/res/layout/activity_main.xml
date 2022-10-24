@@ -29,128 +29,54 @@
             android:textColorHint="@color/pastel_dark_green" />
 
         <Space
-            android:layout_width="match_parent"
-            android:layout_height="23dp" />
+            android:layout_width="100dp"
+            android:layout_height="500dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="181dp"
             android:orientation="horizontal">
 
-            <Space
-                android:layout_width="22dp"
-                android:layout_height="200dp" />
 
-            <LinearLayout
-                android:layout_width="171dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/browse_screen_home_button"
-                    android:layout_width="147dp"
-                    android:layout_height="147dp"
-                    android:contentDescription="@string/history_image"
-                    android:onClick="launchBrowseQuizzes"
-                    app:srcCompat="@drawable/browse_button_image"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
-
-                <TextView
-                    android:id="@+id/browseQuizzesImageText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="33dp"
-                    android:foregroundTint="#FFFFFF"
-                    android:gravity="center"
-                    android:text="@string/browse_quizzes"
-                    android:textColor="@color/pastel_dark_green"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/analyticsImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="TODO"
+                android:layoutDirection="rtl"
+                android:onClick="launchAnalytics"
+                app:srcCompat="@drawable/analytics_button_image" />
 
             <Space
-                android:layout_width="137dp"
-                android:layout_height="143dp"
-                android:layout_weight="1" />
+                android:layout_width="60dp"
+                android:layout_height="500dp" />
 
-            <LinearLayout
-                android:layout_width="273dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/analyticsImage"
-                    android:layout_width="157dp"
-                    android:layout_height="141dp"
-                    android:layout_weight="1"
-                    android:contentDescription="TODO"
-                    android:layoutDirection="rtl"
-                    android:onClick="launchAnalytics"
-                    app:srcCompat="@drawable/analytics_button_image" />
-
-                <TextView
-                    android:id="@+id/analyticsImageText"
-                    android:layout_width="159dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/analytics"
-                    android:textAlignment="center"
-                    android:textColor="@color/pastel_dark_green"
-                    android:textSize="20sp" />
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/logoutImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/history_image"
+                android:onClick="launchLoginScreen"
+                app:srcCompat="@drawable/logout_button_image" />
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="500dp" />
+            <ImageView
+                android:id="@+id/browse_screen_home_button"
+                android:layout_width="86dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/history_image"
+                android:onClick="launchBrowseQuizzes"
+                app:srcCompat="@drawable/browse_button_image"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="28dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    </LinearLayout>
 
-            <Space
-                android:layout_width="167dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
 
-            <LinearLayout
-                android:layout_width="295dp"
-                android:layout_height="157dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/logoutImage"
-                    android:layout_width="122dp"
-                    android:layout_height="130dp"
-                    android:contentDescription="@string/history_image"
-                    android:onClick="launchLoginScreen"
-                    app:srcCompat="@drawable/logout_button_image" />
-
-                <TextView
-                    android:id="@+id/logoutImageText"
-                    android:layout_width="124dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/log_out"
-                    android:textAlignment="center"
-                    android:textColor="@color/pastel_dark_green"
-                    android:textSize="20sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="24dp" />
-
-        <TextView
-            android:id="@+id/outputText"
-            android:layout_width="match_parent"
-            android:layout_height="122dp"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
