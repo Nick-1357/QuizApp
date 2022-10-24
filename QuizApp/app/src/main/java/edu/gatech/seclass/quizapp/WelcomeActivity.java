@@ -35,6 +35,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(WelcomeActivity.this, CreateAccount.class));
+        startActivity(new Intent(WelcomeActivity.this, Login.class));
     }
 }
