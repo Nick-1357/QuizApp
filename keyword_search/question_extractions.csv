@@ -1,0 +1,10 @@
+OPINION,defined random number,1,"[{'start_char': 27, 'form': 'random numbers is defined', 'end_char': 52}]",1.0
+ASPECT,random number,1,"[{'start_char': 27, 'form': 'random numbers', 'end_char': 41}]",0.36781887607216335
+ASPECT,matlab code,1,"[{'start_char': 137, 'form': 'MATLAB code', 'end_char': 148}]",0.36781887607216335
+ASPECT,as:<pre class,1,"[{'start_char': 63, 'form': 'as:<pre class', 'end_char': 76}]",0.36781887607216335
+ASPECT,matlab,2,"[{'start_char': 56, 'form': 'MATLAB', 'end_char': 62}, {'start_char': 77, 'form': 'MATLAB', 'end_char': 83}]",0.31627311779059186
+ASPECT,aa,1,"[{'start_char': 84, 'form': 'aa', 'end_char': 86}]",0.25
+ASPECT,code,1,"[{'start_char': 182, 'form': 'code', 'end_char': 186}]",0.25
+ASPECT,complex</b,1,"[{'start_char': 15, 'form': 'complex</b', 'end_char': 25}]",0.25
+ASPECT,vector,1,"[{'start_char': 2, 'form': 'vector', 'end_char': 8}]",0.25
+ASPECT,description,1,"[{'start_char': 158, 'form': 'description', 'end_char': 169}]",0.25
