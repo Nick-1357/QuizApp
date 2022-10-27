@@ -101,9 +101,8 @@ These files are the schemas/models for the appropriate classes/collections being
 - Samarth Parameswar
 - Sanjit Pingili
 - Sahana Krishnan
-- Krishan Patel
-- Sakshi Deshpande
 - Abdulaziz Memesh
-- Neha Lalani
+- Rishi Nopany
+- Shreekrishna Bhat
 
 ## [Figma Link to Wireframing](https://www.figma.com/file/aupRmO6UwfnjnlzystVvnp/VIP-Quiz-App-Designs?node-id=34%3A1066)
