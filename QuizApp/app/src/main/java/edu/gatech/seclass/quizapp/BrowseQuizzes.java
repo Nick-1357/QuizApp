@@ -238,7 +238,7 @@ public class BrowseQuizzes extends MainActivity {
     //launch recommended quiz from db
     public void sendReqAndLaunchRecommendedQuiz(View view) {
         // put in IP address of your laptop here
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.180.247.160:3000/readrecommended", new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.0.0.2:3000/readrecommended", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
