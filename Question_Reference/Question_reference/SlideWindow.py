@@ -7,7 +7,7 @@ decayfactor=[1,0.75,0.25,0.10]
 
 def calculatePharagraph(keywordsAndWeight, text):
     sentences = text.split(".")
-    print(sentences)
+    #print(sentences)
     weights = [0]*len(sentences)
     resultL = [0]*len(sentences)
     resultR = [0]*len(sentences)
