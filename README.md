@@ -12,7 +12,7 @@ Each class is represented as a Collection and each object of that class is repre
 
 **API:** Make sure npm is installed. In your terminal, cd into backend, and run "npm install". This should download all the node modules with the versions specified in package-lock.json. Then, run "npm start". This should output "listening on port 3000, connected to the database" onto the terminal. 
 
-*Ensuring QuizApp-API Integration works:* The API is currently locally hosted on port 3000, which is on a different host than the Android emulator. This means that you must change the IP address in the URL used in the Volley requests to the IP address of your public Wifi network. For example, "http://yourip:3000/readrandom". This will need to be done in the BrowseQuizzes, ResultsActivity, Login, CreateAccount, and ForgotPassword classes.
+*Ensuring QuizApp-API Integration works:* The API is currently locally hosted on port 3000, which is on a different host than the Android emulator. This means that you must change the IP address in the URL used in the Volley requests to the IP address of your public Wifi network. For example, "http://yourip:3000/readrandom". This will need to be done in the BrowseQuizzes, ResultsActivity, Login, CreateAccount, and ForgotPassword classes. It may be possible that the ID address you give could be the IP address of the emulator itself and not the local machine. One way to avoid problems from this is to just set "yourip" in "http://yourip:3000/readrandom" to be 10.0.2.2 which defaults to the correct local machine ip address.
 
 ## Front End
 
@@ -97,12 +97,16 @@ These files are the schemas/models for the appropriate classes/collections being
 
 ## Fall 2022 Team Members
 
+- Sanjit Pingili
+- Khushi Magiawala
+- Krishan Patel
+- Sakshi Deshpande
 - Abdulaziz Memesh
 - Rishi Nopany
 - Sanjit Pingli
 - Samarth Parameshwar
 - Sahana Krishnan
 - Varun Patel
-- Saikrishna Bhat
+- Shreekrishna Bhat
 
 ## [Figma Link to Wireframing](https://www.figma.com/file/aupRmO6UwfnjnlzystVvnp/VIP-Quiz-App-Designs?node-id=34%3A1066)

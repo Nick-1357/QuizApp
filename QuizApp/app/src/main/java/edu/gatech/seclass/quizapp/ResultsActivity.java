@@ -72,7 +72,11 @@ public class ResultsActivity extends AppCompatActivity {
     public void saveResults(View view) {
         // can't save results more than once
         saveResultsButton.setEnabled(false);
+<<<<<<< HEAD
         String url = "http://128.61.60.62:3000/recordAnswers";
+=======
+        String url = "http://10.136.4.204/recordAnswers";
+>>>>>>> origin/Shreekrishna
         final JSONObject reqBody = JsonUtil.convertQuizAttempt(currentUser.currentQuizAttempt);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
