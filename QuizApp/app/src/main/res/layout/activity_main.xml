@@ -47,8 +47,30 @@
                 android:onClick="launchAnalytics"
                 app:srcCompat="@drawable/analytics_button_image" />
 
+            <ImageView
+                android:id="@+id/logoutImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:contentDescription="@string/history_image"
+                android:onClick="launchLoginScreen"
+                app:srcCompat="@drawable/logout_button_image" />
             <Space
-                android:layout_width="90dp"
+                android:layout_width="9dp"
+                android:layout_height="500dp" />
+            <Space
+                android:layout_width="9dp"
+                android:layout_height="500dp" />
+
+            <ImageView
+                android:id="@+id/logoutImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:contentDescription="@string/history_image"
+                android:onClick="launchLoginScreen"
+                app:srcCompat="@drawable/logout_button_image" />
+
+            <Space
+                android:layout_width="9dp"
                 android:layout_height="500dp" />
 
             <ImageView
@@ -59,7 +81,7 @@
                 android:onClick="launchLoginScreen"
                 app:srcCompat="@drawable/logout_button_image" />
             <Space
-                android:layout_width="90dp"
+                android:layout_width="9dp"
                 android:layout_height="500dp" />
             <ImageView
                 android:id="@+id/browse_screen_home_button"
