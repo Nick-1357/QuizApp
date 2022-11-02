@@ -79,21 +79,8 @@ public class Login extends AppCompatActivity {
 
         if (view.getId() == login.getId()) {
             // update IP address of laptop here
-<<<<<<< HEAD
-            String url = "http://128.61.54.190:3000/getUser/" + username.getText().toString();
-=======
-            String url = "http://10.0.2.2:3000/getUser/" + username.getText().toString();
+            String url = "http://128.61.63.238:3000/getUser/" + username.getText().toString();
 
-            String newUrl = "https://randomuser.me/api/";
-
-            JsonObjectRequest testRequest = new JsonObjectRequest(newUrl, null, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    System.out.println(response.toString());
-                }}, null);
-
-
->>>>>>> origin/Shreekrishna
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
@@ -137,7 +124,6 @@ public class Login extends AppCompatActivity {
 
             SingletonRequestQueue.getInstance(this).getRequestQueue().getCache().clear();
             SingletonRequestQueue.getInstance(this).getRequestQueue().add(jsonObjectRequest);
-            SingletonRequestQueue.getInstance(this).getRequestQueue().add(testRequest);
         }
     }
 }

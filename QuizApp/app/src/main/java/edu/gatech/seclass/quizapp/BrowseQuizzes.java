@@ -217,17 +217,19 @@ public class BrowseQuizzes extends MainActivity {
 
     //sends request for and launches random quiz
     public void sendReqAndLaunchRandomQuiz(View view) {
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.136.4.204/readrandom", new Response.Listener<JSONArray>() {
+        System.out.println(" Send Req and launch Random quiz");
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://128.61.63.238:3000/readrandom", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
                 Quiz quiz = JsonUtil.parseQuiz(response);
+                System.out.println(quiz + " XXXXXX ");
                 launchParsedQuiz(quiz);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("error: " + error);
+                System.out.println("error1: " + error);
 
             }
         });
