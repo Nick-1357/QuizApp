@@ -44,92 +44,112 @@ mongoose
  * GET: /readChapterQuestions/:chapterNumber/:count
  * Retrives random set of <count> question from questions from chapter <chapterNumber>.
  */
-app.get('/readChapterQuestions/:chapterNumber/:count', (req, res) => {
-	QuizAppQuestion.find({ chapter: req.params.chapterNumber }).then(
-		(questions) => {
-			numberOfQuestions = Math.min(req.params.count, questions.length - 1);
-			randNumSet = [];
-			questionsToReturn = [];
+app.get('/readChapterQuestions/:type/:chapterNumber/:count', (req, res) => {
+	QuizAppQuestion.find({ chapter: req.params.chapterNumber })
+		.then((questions) => {
+			if (req.params.type == 'rand') {
+				numberOfQuestions = Math.min(req.params.count, questions.length - 1);
+				randNumSet = [];
+				questionsToReturn = [];
 
-			for (i = 0; i < numberOfQuestions; i++) {
-				newNum = randomIntFromInterval(0, numberOfQuestions);
-				while (randNumSet.includes(newNum)) {
+				for (i = 0; i < numberOfQuestions; i++) {
 					newNum = randomIntFromInterval(0, numberOfQuestions);
+					while (randNumSet.includes(newNum)) {
+						newNum = randomIntFromInterval(0, numberOfQuestions);
+					}
+					randNumSet.push(newNum);
+					questions[newNum] != undefined
+						? questionsToReturn.push(questions[newNum])
+						: NaN;
 				}
-				randNumSet.push(newNum);
-				questions[newNum] != undefined
-					? questionsToReturn.push(questions[newNum])
-					: NaN;
+				console.log(
+					questionsToReturn.forEach((question) => {
+						console.log(
+							'ID: ' +
+								question.id +
+								', ' +
+								question.question +
+								' \nAns: ' +
+								question.answer
+						);
+					})
+				);
+				console.log(questionsToReturn.length + ' questions returned');
+				res.send(questionsToReturn);
+			} else {
+				questions = questions.splice(
+					0,
+					Math.min(req.params.count, questions.length)
+				);
+				res.send(questions);
 			}
-			console.log(
-				questionsToReturn.forEach((question) => {
-					console.log(
-						'ID: ' +
-							question.id +
-							', ' +
-							question.question +
-							' \nAns: ' +
-							question.answer
-					);
-				})
-			);
-			console.log(questionsToReturn.length + ' questions returned');
-			res.send(questionsToReturn);
-		}
-	);
-	// .catch((err) => {
-	//   res.status(500).send({
-	//     message: "some error occurred while retrieving messages",
-	//     Error: err,
-	//   });
-	// });
+		})
+		.catch((err) => {
+			res.status(500).send({
+				message: 'some error occurred while retrieving messages',
+				Error: err,
+			});
+		});
 });
 
 /**
  * GET: /readChapterQuestionsFromSection/:chapterNumber/:section/:count
  * Retrives random set of <count> question from questions from chapter <chapterNumber> and <section>.
  */
-app.get('/readChapterQuestions/:chapterNumber/:section/:count', (req, res) => {
-	QuizAppQuestion.find({
-		chapter: req.params.chapterNumber,
-		section: req.params.section,
-	}).then((questions) => {
-		numberOfQuestions = Math.min(req.params.count, questions.length - 1);
-		randNumSet = [];
-		questionsToReturn = [];
+app.get(
+	'/readChapterQuestions/:type/:chapterNumber/:section/:count',
+	(req, res) => {
+		QuizAppQuestion.find({
+			chapter: req.params.chapterNumber,
+			section: req.params.section,
+		})
+			.then((questions) => {
+				if (req.params.type == 'rand') {
+					numberOfQuestions = Math.min(req.params.count, questions.length - 1);
+					randNumSet = [];
+					questionsToReturn = [];
 
-		for (i = 0; i < numberOfQuestions; i++) {
-			newNum = randomIntFromInterval(0, numberOfQuestions);
-			while (randNumSet.includes(newNum)) {
-				newNum = randomIntFromInterval(0, numberOfQuestions);
-			}
-			randNumSet.push(newNum);
-			questions[newNum] != undefined
-				? questionsToReturn.push(questions[newNum])
-				: NaN;
-		}
-		console.log(
-			questionsToReturn.forEach((question) => {
-				console.log(
-					'ID: ' +
-						question.id +
-						', ' +
-						question.question +
-						' \nAns: ' +
-						question.answer
-				);
+					for (i = 0; i < numberOfQuestions; i++) {
+						newNum = randomIntFromInterval(0, numberOfQuestions);
+						while (randNumSet.includes(newNum)) {
+							newNum = randomIntFromInterval(0, numberOfQuestions);
+						}
+						randNumSet.push(newNum);
+						questions[newNum] != undefined
+							? questionsToReturn.push(questions[newNum])
+							: NaN;
+					}
+					console.log(
+						questionsToReturn.forEach((question) => {
+							console.log(
+								'ID: ' +
+									question.id +
+									', ' +
+									question.question +
+									' \nAns: ' +
+									question.answer
+							);
+						})
+					);
+					console.log(questionsToReturn.length + ' questions returned');
+					res.send(questionsToReturn);
+				} else {
+					questions = questions.splice(
+						0,
+						Math.min(req.params.count, questions.length)
+					);
+					res.send(questions);
+				}
 			})
-		);
-		console.log(questionsToReturn.length + ' questions returned');
-		res.send(questionsToReturn);
-	});
-	// .catch((err) => {
-	//   res.status(500).send({
-	//     message: "some error occurred while retrieving messages",
-	//     Error: err,
-	//   });
-	// });
-});
+			.catch((err) => {
+				console.log(err);
+				res.status(500).send({
+					message: 'some error occurred while retrieving messages',
+					Error: err,
+				});
+			});
+	}
+);
 
 /**
  * GET: /getParticularQuestion/:ID
