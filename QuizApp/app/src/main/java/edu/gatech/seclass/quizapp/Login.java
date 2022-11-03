@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
 
         if (view.getId() == login.getId()) {
             // update IP address of laptop here
-            String url = "http://10.180.247.160:3000/getUser/" + username.getText().toString();
+            String url = "http://128.61.12.151:3000/getUser/" + username.getText().toString();
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {

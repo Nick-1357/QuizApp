@@ -3,6 +3,10 @@ plugins {
     //id 'realm-android'
 }
 
+task prepareKotlinBuildScriptModel {
+
+}
+
 android {
     compileSdk 30
 
