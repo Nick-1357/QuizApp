@@ -2,7 +2,9 @@ plugins {
     id 'com.android.application'
     //id 'realm-android'
 }
-
+task wrapper(type: Wrapper){
+    gradleVersion = '7.2'
+}
 android {
     compileSdk 30
 
@@ -27,7 +29,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+task prepareKotlinBuildScriptModel {
 
+}
 
 dependencies {
     implementation 'org.mongodb:mongodb-driver-sync:4.3.3'
