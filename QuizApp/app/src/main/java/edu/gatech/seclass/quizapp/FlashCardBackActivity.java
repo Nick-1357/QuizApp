@@ -1,6 +1,7 @@
 package edu.gatech.seclass.quizapp;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import static edu.gatech.seclass.quizapp.MainActivity.currentUser;
 
@@ -18,13 +19,17 @@ public class FlashCardBackActivity extends AppCompatActivity implements Serializ
 
     private Button submitButton;
     private Button flipButton;
-    private Button correctButton;
-    private Button incorrectButton;
+    //private Button correctButton;
+    //private Button incorrectButton;
     private String frontText;
     private String backText;
     private FlashCardQuestion flashCardQuestion;
     private int correct;
-    private Switch toggleSwitch;
+    //private Switch toggleSwitch;
+    private Button easyButton;
+    private Button mediumButton;
+    private Button hardButton;
+    private ArrayList<Integer> difficultyLevel = new ArrayList<>();
 
     private boolean isAnswered;
 
@@ -50,16 +55,46 @@ public class FlashCardBackActivity extends AppCompatActivity implements Serializ
     }
 
     private void initializeButtons() {
-        incorrectButton = (Button) findViewById(R.id.incorrectButton);
-        incorrectButton.setOnClickListener(view -> {
-            markIncorrect();
-            isAnswered = true;
+//        incorrectButton = (Button) findViewById(R.id.incorrectButton);
+//        incorrectButton.setOnClickListener(view -> {
+//            markIncorrect();
+//            isAnswered = true;
+//        });
+
+//        correctButton = (Button) findViewById(R.id.correctButton2);
+//        correctButton.setOnClickListener(view -> {
+//            markCorrect();
+//            isAnswered= true;
+//        });
+
+        easyButton = (Button) findViewById(R.id.easyButton);
+        mediumButton = (Button) findViewById(R.id.mediumButton);
+        hardButton = (Button) findViewById(R.id.hardButton);
+
+        easyButton.setOnClickListener(view -> {
+            if (isAnswered){
+                difficultyLevel.add(1);
+            }
         });
 
-        correctButton = (Button) findViewById(R.id.correctButton2);
-        correctButton.setOnClickListener(view -> {
-            markCorrect();
-            isAnswered= true;
+        mediumButton.setOnClickListener(view -> {
+            if (isAnswered){
+                difficultyLevel.add(3);
+            }
+        });
+
+
+        hardButton.setOnClickListener(view -> {
+            if (isAnswered){
+                difficultyLevel.add(5);
+            }
+        });
+
+        submitButton.setOnClickListener(view -> {
+            if (isAnswered){
+                System.out.println("correct: "+correct);
+                submitFunctionality();
+            }
         });
 
         submitButton = (Button) findViewById(R.id.submitButtonFB);
@@ -72,7 +107,7 @@ public class FlashCardBackActivity extends AppCompatActivity implements Serializ
 
         flipButton = (Button) findViewById(R.id.flipButton);
         flipButton.setOnClickListener(view -> goToFront());
-        toggleSwitch = findViewById(R.id.flashcardbackswitch);
+        //toggleSwitch = findViewById(R.id.flashcardbackswitch);
     }
 
     /**
@@ -86,9 +121,9 @@ public class FlashCardBackActivity extends AppCompatActivity implements Serializ
         UserAnswer userAnswer = new UserAnswer(flashCardQuestion, dummy, currentUser.userID, null, correct);
 
         currentUser.currentQuizAttempt.addUserAnswer(userAnswer);
-        if (toggleSwitch.isChecked()) {
-            currentUser.currentQuizAttempt.addToggledQuestions(flashCardQuestion);
-        }
+//        if (toggleSwitch.isChecked()) {
+//            currentUser.currentQuizAttempt.addToggledQuestions(flashCardQuestion);
+//        }
         goToNextScreen();
     }
 
