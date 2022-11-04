@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -120,7 +121,7 @@ public class CreateAccount extends AppCompatActivity  {
 
             final JSONObject reqBody = JsonUtil.convertUser(user);
             // change endpoint
-            String url = "http://128.61.49.51/recordUser";
+            String url = "http://" + Login.ip_address + ":3000/recordUser";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
