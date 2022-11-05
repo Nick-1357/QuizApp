@@ -1,0 +1,4 @@
+To Do list
+1. Work on Android Studio learning
+2. Work on implementing the sigma
+3. Work on implementing the application login UI

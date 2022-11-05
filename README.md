@@ -97,11 +97,12 @@ These files are the schemas/models for the appropriate classes/collections being
 
 ## Spring 2022 Team Members
 
+- Varun Patel
+- Samarth Parameswar
 - Sanjit Pingili
-- Khushi Magiawala
-- Krishan Patel
-- Sakshi Deshpande
+- Sahana Krishnan
 - Abdulaziz Memesh
-- Neha Lalani
+- Rishi Nopany
+- Shreekrishna Bhat
 
 ## [Figma Link to Wireframing](https://www.figma.com/file/aupRmO6UwfnjnlzystVvnp/VIP-Quiz-App-Designs?node-id=34%3A1066)
