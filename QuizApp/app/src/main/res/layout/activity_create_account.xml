@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pastel_lime"
-    android:backgroundTint="@color/purple_200"
+    android:background="#2196F3"
+    android:backgroundTint="#2196F3"
     android:backgroundTintMode="screen"
     android:visibility="visible">
 
@@ -19,18 +19,18 @@
             android:id="@+id/create_new_account_title"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:background="@color/pastel_lime"
+            android:background="#2196F3"
             android:gravity="center"
             android:text="@string/create_new_account"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/pastel_dark_green" />
+            android:textColor="@color/black" />
 
         <LinearLayout
             android:id="@+id/pfp_block"
             android:layout_width="match_parent"
             android:layout_height="157dp"
             android:background="@color/pastel_lime"
-            android:backgroundTint="@color/pastel_lime"
+            android:backgroundTint="#2196F3"
             android:orientation="horizontal">
 
             <Button
@@ -41,9 +41,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="10"
-                android:backgroundTint="@color/pastel_middle_green"
+                android:backgroundTint="@color/white"
                 android:text="@string/browse_files"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 tools:ignore="TextContrastCheck" />
 
             <LinearLayout
@@ -73,7 +73,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:adjustViewBounds="false"
-                    android:background="@color/pastel_middle_green"
+                    android:background="@color/white"
                     android:contentDescription="@string/history_image"
                     android:contextClickable="false"
                     android:cropToPadding="false"
@@ -94,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/pastel_lime"
-                android:backgroundTint="@color/pastel_lime"
+                android:backgroundTint="#2196F3"
                 android:orientation="vertical">
 
                 <Space
@@ -117,7 +117,7 @@
                     android:paddingRight="5dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@android:color/black"
-                    android:textColorHint="@color/hint_grey" />
+                    android:textColorHint="@color/black" />
 
                 <Space
                     android:id="@+id/create_account_space3"
@@ -128,17 +128,18 @@
                     android:id="@+id/birthdate_directions"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:background="@color/pastel_dark_green"
+                    android:background="#2196F3"
+                    android:backgroundTint="@color/white"
                     android:gravity="center"
                     android:text="@string/select_birth_date"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/black" />
 
                 <CalendarView
                     android:id="@+id/birthdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/pastel_light_green"
+                    android:background="@color/white"
                     android:focusedMonthDateColor="@color/white"
                     android:maxDate="12/31/2022"
                     android:minDate="01/01/1970"
@@ -173,7 +174,7 @@
                     android:paddingRight="5dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@android:color/black"
-                    android:textColorHint="@color/hint_grey" />
+                    android:textColorHint="@color/black" />
 
                 <Space
                     android:id="@+id/create_account_space0"
@@ -196,7 +197,7 @@
                     android:paddingRight="5dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@android:color/black"
-                    android:textColorHint="@color/hint_grey" />
+                    android:textColorHint="@color/black" />
 
                 <Space
                     android:id="@+id/create_account_space1"
@@ -219,7 +220,7 @@
                     android:paddingRight="5dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@android:color/black"
-                    android:textColorHint="@color/hint_grey" />
+                    android:textColorHint="@color/black" />
 
                 <Space
                     android:id="@+id/create_account_space2"
@@ -242,7 +243,7 @@
                     android:paddingRight="5dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@android:color/black"
-                    android:textColorHint="@color/hint_grey" />
+                    android:textColorHint="@color/black" />
 
                 <Space
                     android:id="@+id/create_account_space4"
@@ -265,7 +266,7 @@
                     android:paddingRight="5dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="@android:color/black"
-                    android:textColorHint="@color/hint_grey" />
+                    android:textColorHint="@color/black" />
 
                 <Space
                     android:id="@+id/create_account_button_top"
@@ -278,10 +279,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:backgroundTint="@color/teal_700"
+                    android:backgroundTint="@color/white"
                     android:contentDescription="@string/Submit"
                     android:onClick="createAccount"
                     android:text="@string/create_account"
+                    android:textColor="@color/black"
                     tools:ignore="TextContrastCheck" />
 
                 <Button
@@ -290,7 +292,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:backgroundTint="@color/teal_700"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/black"
                     android:onClick="BackToLogin"
                     android:text="@string/login_button" />
 
@@ -305,7 +308,7 @@
                     android:minHeight="48dp"
                     android:text="@string/login_tagline"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@color/hint_grey"
+                    android:textColor="@color/black"
                     tools:ignore="TouchTargetSizeCheck" />
 
             </LinearLayout>

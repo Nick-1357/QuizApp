@@ -57,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Login.class);
         startActivity(intent);
     }
+    @SuppressLint("SetTextI18n")
+    public void launchHomeScreen(View view) {
+        outputText.setText("You clicked Home. Taking you to Home screen");
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onBackPressed () {

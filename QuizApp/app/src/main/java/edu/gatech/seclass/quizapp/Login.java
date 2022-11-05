@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button create;
-    public static String ip_address = "128.61.49.179";
+    public static String ip_address = "28.61.12.151";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
