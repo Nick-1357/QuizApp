@@ -2,8 +2,8 @@ import math
 
 beforeword = [" ","\n"];
 afterword = [" ", ".","\n"];
-windowsize=[5,11,19,31]
-decayfactor=[1,0.75,0.25,0.10]
+windowsize=[3,7,11]
+windowWeight=[1,0.4,0.05]
 
 def calculatePharagraph(keywordsAndWeight, text):
     sentences = text.split(".")
@@ -23,7 +23,7 @@ def calculatePharagraph(keywordsAndWeight, text):
     resultR.reverse()
     weights.reverse()
     for i in range(len(resultL)):
-        resultL[i]+=resultR[i]-weights[i]*decayfactor[0]
+        resultL[i]+=resultR[i]-weights[i]*windowWeight[0]
     return resultL
 
 def calculatePharagraphL(weights):
@@ -41,7 +41,7 @@ def calculatePharagraphL(weights):
             if(i>=size):
                 window-=weights[i-size]
             if(i<len(weights)-off):
-                result[i+off]+=window*decayfactor[j]
+                result[i+off]+=window*windowWeight[j]
     return result
 
 def calculateSentence(keywordsAndWeight, sentence):
