@@ -10,7 +10,7 @@ from SlideWindow import *
 
 #this function will recure the raw text(with html tags) of chapter one as a single string
 def chapter1content():
-    engine = create_engine("mysql+mysqlconnector://root:Sdz321654@localhost:3306/its") #create_engine("mysql+mysqlconnector://username:password:host:port_number:database_name")
+    engine = create_engine("mysql+mysqlconnector://root:yourpassword@localhost:3306/its") #create_engine("mysql+mysqlconnector://username:password:host:port_number:database_name")
     query = pd.read_sql_query('SELECT * FROM eSPFirst WHERE chapter=1', engine) #put desired query to convert
     df = pd.DataFrame(query) #convert query into python data structure
     #print(df)
