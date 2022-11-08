@@ -11,7 +11,7 @@ from SlideWindow import *
 #this function will recure the raw text(with html tags) of chapter one as a single string
 def chapter1content():
     engine = create_engine("mysql+mysqlconnector://root:yourpassword@localhost:3306/its") #create_engine("mysql+mysqlconnector://username:password:host:port_number:database_name")
-    query = pd.read_sql_query('SELECT * FROM eSPFirst WHERE chapter=1', engine) #put desired query to convert
+    query = pd.read_sql_query('SELECT * FROM eSPFirst', engine) #put desired query to convert
     df = pd.DataFrame(query) #convert query into python data structure
     #print(df)
 
@@ -71,51 +71,54 @@ def kwsampleQkw():
     return kw
 
 
+def runExample():
+    text = chapter1content()
+    q = 'The meaning of "negative frequency" in a Fourier series is'
+    additionalkw = [["Fourier",2.0],["negative frequency",8.0],["series",1.0]]
 
-text = chapter1content()
-q = "What is the difference between an acoustic signal and a time signal?"
 
+    print("\n")
+    print("************************************************************************")
+    print("*************************Chapter 1 Content******************************")
+    print("************************************************************************")
+    print(text)
 
-print("\n")
-print("************************************************************************")
-print("*************************Chapter 1 Content******************************")
-print("************************************************************************")
-print(text)
+    print("\n")
+    print("************************************************************************")
+    print("************** Keywords also in extraction.csv *************************")
+    print("************************************************************************")
 
-print("\n")
-print("************************************************************************")
-print("************** Keywords also in extraction.csv *************************")
-print("************************************************************************")
+    kws = kwsfilter(q);
+    for w in additionalkw:
+        kws.append(w);
+    print(kws)
+    res=calculatePharagraph(kws,text)
 
-kws = kwsfilter(q);
-print(kws)
-res=calculatePharagraph(kws,text)
+    max = 0
+    index = 0
+    for i in range(len(res)):
+        if res[i]>res[index]:
+            index = i
 
-max = 0
-index = 0
-for i in range(len(res)):
-    if res[i]>res[index]:
-        index = i
+    print("\n")
+    print("************************************************************************")
+    print("************************Sentence_Weight_Res*****************************")
+    print("************************************************************************")
+    print(res)
+    print("The index of the max weight: {}".format(index))
 
-print("\n")
-print("************************************************************************")
-print("************************Sentence_Weight_Res*****************************")
-print("************************************************************************")
-print(res)
-print("The index of the max weight: {}".format(index))
+    sentences = text.split(".")
+    i = 0
 
-sentences = text.split(".")
-i = 0
-
-print("\n")
-print("************************************************************************")
-print("**********Sample_Result,including 3 sentence before and after***********")
-print("************************************************************************")
-for s in sentences:
-    if(i<index+3 and i>index-3):
-        print("\nIndex:{}".format(i))
-        print(s)
-    i=i+1
+    print("\n")
+    print("************************************************************************")
+    print("**********Sample_Result,including 3 sentence before and after***********")
+    print("************************************************************************")
+    for s in sentences:
+        if(i<index+3 and i>index-3):
+            print("\nIndex:{}".format(i))
+            print(s)
+        i=i+1
 
 
     
