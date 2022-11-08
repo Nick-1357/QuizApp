@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="93dp"
                     android:backgroundTint="@color/pastel_dark_green"
-                    android:onClick="loadQuiz"
+                    android:onClick="sendReqAndLaunchQuiz"
                     android:text="@string/browse_quiz_1" />
 
                 <Button

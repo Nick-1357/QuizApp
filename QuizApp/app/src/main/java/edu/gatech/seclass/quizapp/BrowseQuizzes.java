@@ -32,6 +32,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class BrowseQuizzes extends MainActivity {
     private Button demo_quiz;
@@ -282,4 +284,33 @@ public class BrowseQuizzes extends MainActivity {
         startActivity(intent);
     }
 
+    /**
+     * Sends a request for quizzes from a certain chapter and section.
+     *
+     * @param view  current view
+     */
+
+    public void sendReqAndLaunchQuiz(View view) {
+        JsonArrayRequest jsonArrayRequest =
+                new JsonArrayRequest("http://128.61.53.131:3000/readChapterQuestions/f/2/0/10",
+                        new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    JSONObject o = (JSONObject) (response.get(0));
+                    System.out.println(o.get("_id").toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("error1: " + error);
+
+            }
+        });
+        SingletonRequestQueue.getInstance(this).getRequestQueue().getCache().clear();
+        SingletonRequestQueue.getInstance(this).getRequestQueue().add(jsonArrayRequest);
+    }
 }

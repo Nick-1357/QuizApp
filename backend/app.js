@@ -3,11 +3,14 @@ const { send, json } = require('express/lib/response');
 const app = express();
 const mongoose = require('mongoose');
 const Question = require('./Question.js');
-const QuizAppQuestion = require('./QuizAppQuestion.js');
 const UserAnswer = require('./UserAnswer.js');
 const QuizAttempt = require('./QuizAttempt.js');
 const User = require('./User.js');
 const { count } = require('./Question.js');
+
+// Used for Fall 2022
+const QuizAppQuestion = require('./QuizAppQuestion.js');
+const QuestionAttempt = require('./QuestionAttempt.js');
 app.use(express.json());
 
 //test function to see if app is listening on port 3000
@@ -36,13 +39,16 @@ mongoose
 		process.exit();
 	});
 
+// Create a reference to the database
+var db = mongoose.connection;
+
 /**
  * Queries for QuizAppSchema
  */
 
 /**
  * GET: /readChapterQuestions/:chapterNumber/:count
- * Retrives random set of <count> question from questions from chapter <chapterNumber>.
+ * Retrieves random set of <count> question from questions from chapter <chapterNumber>.
  */
 app.get('/readChapterQuestions/:type/:chapterNumber/:count', (req, res) => {
 	QuizAppQuestion.find({ chapter: req.params.chapterNumber })
@@ -94,7 +100,7 @@ app.get('/readChapterQuestions/:type/:chapterNumber/:count', (req, res) => {
 
 /**
  * GET: /readChapterQuestionsFromSection/:chapterNumber/:section/:count
- * Retrives random set of <count> question from questions from chapter <chapterNumber> and <section>.
+ * Retrieves random set of <count> question from questions from chapter <chapterNumber> and <section>.
  */
 app.get(
 	'/readChapterQuestions/:type/:chapterNumber/:section/:count',
@@ -153,7 +159,7 @@ app.get(
 
 /**
  * GET: /getParticularQuestion/:ID
- * Retrives a question with a given ID.
+ * Retrieves a question with a given ID.
  */
 app.get('/getParticularQuestion/:ID', (req, res) => {
 	QuizAppQuestion.findById(req.params.ID).then((question) => {
@@ -162,8 +168,40 @@ app.get('/getParticularQuestion/:ID', (req, res) => {
 	});
 });
 
-//OLD Questions schema
-//gets all questions
+/**
+ * GET: /findQuestionAttempt/:userId/:qId
+ * Retrieves question attempt matching the userID and the questionID.
+ */
+app.get('/findQuestionAttempt/:userId/:qId', (req, res) => {
+	QuestionAttempt.find({
+		userId: req.params.userId,
+		questionId: req.params.qId,
+	})
+		.then((questionAttempt) => {
+			if (questionAttempt.length == 0) {
+				var newQuestionAttempt = {
+					questionId: req.params.qId,
+					userId: req.params.userId,
+					repetitions: 0,
+					easeFactor: 2.5,
+					interval: 0,
+				};
+				console.log(newQuestionAttempt);
+				db.collection('QuestionAttempt').insert(newQuestionAttempt);
+				res.send(newQuestionAttempt);
+			}
+			res.send(questionAttempt);
+		})
+		.catch((err) => {
+			res.status(500).send({
+				message: 'some error occurred while retrieving messages',
+				Error: err,
+			});
+		});
+});
+
+// OLD Questions schema
+// gets all questions
 app.get('/read', (req, res) => {
 	Question.find()
 		.then((questions) => {

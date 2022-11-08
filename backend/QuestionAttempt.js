@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const QuestionAttemptSchema = new mongoose.Schema({
-    questionId: String;
+	questionId: String,
 	userId: String,
 	repetitions: Number,
 	easeFactor: Number,
