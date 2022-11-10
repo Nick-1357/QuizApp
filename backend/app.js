@@ -11,6 +11,7 @@ const { count } = require('./Question.js');
 // Used for Fall 2022
 const QuizAppQuestion = require('./QuizAppQuestion.js');
 const QuestionAttempt = require('./QuestionAttempt.js');
+const { ObjectId } = require('mongodb');
 app.use(express.json());
 
 //test function to see if app is listening on port 3000
@@ -199,6 +200,48 @@ app.get('/findQuestionAttempt/:userId/:qId', (req, res) => {
 			});
 		});
 });
+
+/**
+ * GET: /updateQuestionAttempt/:questionAttemptId/:quality
+ * Updates a question attempt based on the quality outputted from the user
+ */
+
+app.get(
+	'/updateQuestionAttempt/:questionAttemptId/:quality',
+	async (req, res, next) => {
+		var quality = req.params.quality;
+		const attempt = await db
+			.collection('QuestionAttempt')
+			.findOne({ _id: ObjectId(req.params.questionAttemptId) });
+		console.log(attempt);
+		if (quality >= 3) {
+			var interval = 0;
+			if (attempt.repetitions == 0) {
+				interval = 1;
+			} else if (attempt.repetitions == 1) {
+				interval = 6;
+			} else {
+				interval = Math.ceil(attempt.interval * attempt.easeFactor);
+			}
+			attempt.interval = interval;
+			attempt.repetitions += 1;
+			attempt.easeFactor += 0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02);
+		} else if (quality < 3) {
+			attempt.repetitions = 0;
+			attempt.interval = 1;
+		}
+		attempt.easeFactor = Math.max(attempt.easeFactor, 1.3);
+		QuestionAttempt.updateOne({ _id: req.params.questionAttemptId }, attempt)
+			.then(() => {
+				res.send(attempt);
+			})
+			.catch((error) => {
+				res.status(400).json({
+					error: error,
+				});
+			});
+	}
+);
 
 // OLD Questions schema
 // gets all questions
