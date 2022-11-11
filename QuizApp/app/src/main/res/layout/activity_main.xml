@@ -43,11 +43,10 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="13dp"
-                android:background="black"
                 android:contentDescription="@string/history_image"
                 android:gravity="right"
                 android:onClick="launchBrowseQuizzes"
-                app:srcCompat="@drawable/person"
+                app:srcCompat="@drawable/people"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
         </RelativeLayout>
@@ -197,7 +196,7 @@
                     android:layout_width="46dp"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/history_image"
-                    app:srcCompat="@drawable/person"
+                    app:srcCompat="@drawable/home"
                     android:onClick="launchHomeScreen" />
             </LinearLayout>
 
@@ -215,8 +214,9 @@
                     android:id="@+id/search_icon"
                     android:layout_width="46dp"
                     android:layout_height="41dp"
+                    android:background="@color/white"
                     android:contentDescription="@string/history_image"
-                    app:srcCompat="@drawable/Search" />
+                    app:srcCompat="@drawable/search" />
             </LinearLayout>
 
             <Space
@@ -235,8 +235,7 @@
                     android:layout_height="87dp"
                     android:background="@color/white"
                     android:contentDescription="@string/history_image"
-                    android:onClick="launchAnalytics"
-                    app:srcCompat="@drawable/graph" />
+                    android:onClick="launchAnalytics"/>
             </LinearLayout>
             <Space
                 android:layout_width="30dp"
@@ -251,10 +250,11 @@
                 <ImageView
                     android:id="@+id/settings_icon"
                     android:layout_width="46dp"
+                    android:background="@color/white"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/history_image"
                     android:onClick="launchLoginScreen"
-                    app:srcCompat="@drawable/Settings" />
+                    app:srcCompat="@drawable/settings" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

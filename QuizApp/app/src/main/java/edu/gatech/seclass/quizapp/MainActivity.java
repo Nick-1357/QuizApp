@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView settings;
     private ImageView search;
     private ImageView pfp;
+    private ImageView analytics;
 
 
     @SuppressLint("SetTextI18n")
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
         pfp = (ImageView) findViewById(R.id.loginPfp);
         pfp.setOnClickListener(view -> launchHomeScreen(view));
+
+        analytics = (ImageView) findViewById(R.id.analytics_icon);
+        analytics.setOnClickListener(view -> launchAnalytics(view));
     }
 
 
