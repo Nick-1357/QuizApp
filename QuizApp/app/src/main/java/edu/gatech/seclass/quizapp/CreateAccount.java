@@ -32,6 +32,10 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+
+
+
+
 public class CreateAccount extends AppCompatActivity  {
     private Button create;
     private Button browse;
@@ -39,8 +43,11 @@ public class CreateAccount extends AppCompatActivity  {
     private EditText name;
     private EditText password;
     private EditText username;
+    private EditText email;
     private ImageView pfp;
     private static final int RQS_OPEN_IMAGE = 1;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +60,7 @@ public class CreateAccount extends AppCompatActivity  {
         username = (EditText) findViewById(R.id.create_account_username);
         password = (EditText) findViewById(R.id.create_account_password);
         name = (EditText)  findViewById(R.id.create_account_name);
+        email = (EditText) findViewById(R.id.create_account_email);
         pfp = (ImageView) findViewById(R.id.profile_picture);
         browse = (Button) findViewById(R.id.create_account_browse);
 
@@ -100,6 +108,33 @@ public class CreateAccount extends AppCompatActivity  {
     }
 
     public void createAccount (View view) {
+        //send user confirmation email
+        String[] TO = {email.getText().toString()};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Quiz App Registration");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Email confirmation for Quiz App account creation and credentials are: " + "name is " + name.getText().toString() + " username is " + username.getText().toString() + " password is " + password.getText().toString());
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Toast.makeText(CreateAccount.this,
+                    "Email sent", Toast.LENGTH_SHORT).show();
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(CreateAccount.this,
+                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
+
+
+
         // check if userId, name, password are blank
         boolean usernameBlank = username.getText().toString().length()==0;
         boolean nameBlank = name.getText().toString().length()==0;
@@ -121,7 +156,7 @@ public class CreateAccount extends AppCompatActivity  {
 
             final JSONObject reqBody = JsonUtil.convertUser(user);
             // change endpoint
-            String url = "http://" + Login.ip_address + ":3000/recordUser";
+            String url = "http://10.52.155.104:3000/recordUser";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {

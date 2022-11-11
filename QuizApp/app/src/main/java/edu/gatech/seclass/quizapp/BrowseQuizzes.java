@@ -218,7 +218,9 @@ public class BrowseQuizzes extends MainActivity {
 
     //sends request for and launches random quiz
     public void sendReqAndLaunchRandomQuiz(View view) {
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://" + Login.ip_address + ":3000/readrandom", new Response.Listener<JSONArray>() {
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.52.155.104:3000/readrandom", new Response.Listener<JSONArray>() {
+
             @Override
             public void onResponse(JSONArray response) {
 
@@ -239,7 +241,9 @@ public class BrowseQuizzes extends MainActivity {
     //launch recommended quiz from db
     public void sendReqAndLaunchRecommendedQuiz(View view) {
         // put in IP address of your laptop here
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://" + Login.ip_address + ":3000/readrecommended", new Response.Listener<JSONArray>() {
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.52.155.104:3000/readrecommended", new Response.Listener<JSONArray>() {
+
             @Override
             public void onResponse(JSONArray response) {
 
