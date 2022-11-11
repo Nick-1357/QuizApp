@@ -8,7 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Switch;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     /* Creating global User. This is probably not the right way
@@ -18,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
      */
     protected static User currentUser;
     private TextView outputText;
+    private ImageView home;
+    private ImageView settings;
+    private ImageView search;
+    private ImageView pfp;
+
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -34,7 +46,21 @@ public class MainActivity extends AppCompatActivity {
         } else {
             outputText.setText("\n\nHello " + currentUser.name + "!");
         }
+
+
+        home = (ImageView) findViewById(R.id.Home);
+        home.setOnClickListener(view -> launchHomeScreen(view));
+
+        settings = (ImageView) findViewById(R.id.settings_icon);
+        settings.setOnClickListener(view -> launchAnalytics(view));
+
+        search = (ImageView) findViewById(R.id.search_icon);
+        search.setOnClickListener(view -> launchBrowseQuizzes(view));
+
+        pfp = (ImageView) findViewById(R.id.loginPfp);
+        pfp.setOnClickListener(view -> launchHomeScreen(view));
     }
+
 
     // How to Switch Screens and Launch New Ones
     @SuppressLint("SetTextI18n")
