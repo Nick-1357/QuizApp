@@ -72,37 +72,23 @@ public class FlashCardBackActivity extends AppCompatActivity implements Serializ
         hardButton = (Button) findViewById(R.id.hardButton);
 
         easyButton.setOnClickListener(view -> {
-            if (isAnswered){
-                difficultyLevel.add(1);
-            }
+            difficultyLevel.add(1);
         });
 
         mediumButton.setOnClickListener(view -> {
-            if (isAnswered){
-                difficultyLevel.add(3);
-            }
+            difficultyLevel.add(3);
         });
 
 
         hardButton.setOnClickListener(view -> {
-            if (isAnswered){
-                difficultyLevel.add(5);
-            }
+            difficultyLevel.add(5);
         });
 
-        submitButton.setOnClickListener(view -> {
-            if (isAnswered){
-                System.out.println("correct: "+correct);
-                submitFunctionality();
-            }
-        });
+
 
         submitButton = (Button) findViewById(R.id.submitButtonFB);
         submitButton.setOnClickListener(view -> {
-            if (isAnswered){
-                System.out.println("correct: "+correct);
-                submitFunctionality();
-            }
+            goToNextScreen();
         });
 
         flipButton = (Button) findViewById(R.id.flipButton);
