@@ -6,22 +6,22 @@ import pandas as pd                         #import these and download them on c
 from sqlalchemy import create_engine        #import these and download them on command line
 import csv
 from SlideWindow import *
-
+from mySimpleFilter import simpleTextCleaner
 
 #this function will recure the raw text(with html tags) of chapter one as a single string
 def chapter1content():
-    engine = create_engine("mysql+mysqlconnector://root:yourpassword@localhost:3306/its") #create_engine("mysql+mysqlconnector://username:password:host:port_number:database_name")
-    query = pd.read_sql_query('SELECT * FROM eSPFirst', engine) #put desired query to convert
+    engine = create_engine("mysql+mysqlconnector://root:Sdz321654@localhost:3306/its") #create_engine("mysql+mysqlconnector://username:password:host:port_number:database_name")
+    query = pd.read_sql_query('SELECT * FROM eSPFirst where chapter=1 and meta=\'paragraph\'', engine) #put desired query to convert
     df = pd.DataFrame(query) #convert query into python data structure
     #print(df)
 
     text_list = df["content"].tolist() # convert into a series (the column containing content)
-    #print(text_list)
+    print(text_list)
     text = ""
     for te in text_list:
         text = text+" "+te
     #print(text)
-    return text
+    return simpleTextCleaner(text)
 
 #this function will read the extractions.csv from '../keyword_search/extractions.csv', and return a list of [<keyword>,<weight>].
 #Now, this function uses a simplest why to delete duplicate.
@@ -74,7 +74,7 @@ def kwsampleQkw():
 def runExample():
     text = chapter1content()
     q = 'The meaning of "negative frequency" in a Fourier series is'
-    additionalkw = [["Fourier",2.0],["negative frequency",8.0],["series",1.0]]
+    additionalkw = [["CD",2.0],["signal",0.5]]
 
 
     print("\n")
@@ -120,5 +120,5 @@ def runExample():
             print(s)
         i=i+1
 
-
+runExample()
     
