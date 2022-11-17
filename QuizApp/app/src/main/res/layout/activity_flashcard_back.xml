@@ -161,12 +161,21 @@
             android:layout_width="match_parent"
             android:layout_height="60dp" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <LinearLayout
+            android:id="@+id/lines"
             android:layout_width="match_parent"
             android:layout_height="74dp"
             android:background="@color/white"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <Space
                 android:layout_width="30dp"
@@ -243,10 +252,7 @@
                     app:srcCompat="@drawable/settings_icon" />
             </LinearLayout>
         </LinearLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
