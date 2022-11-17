@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pastel_lime"
-    android:backgroundTint="@color/pastel_lime">
+    android:background="#2196F3"
+    android:backgroundTint="#2196F3">
 
     <LinearLayout
         android:id="@+id/linearLayout6"
@@ -16,7 +16,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:background="@color/pastel_lime"
-        android:backgroundTint="@color/pastel_lime"
+        android:backgroundTint="@color/white"
         android:backgroundTintMode="src_in"
         android:orientation="vertical"
         android:focusableInTouchMode="true"
@@ -29,11 +29,11 @@
             android:id="@+id/browse_quiz_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/pastel_lime"
+            android:background="#2196F3"
             android:gravity="center"
             android:text="@string/browse_quiz_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="@color/pastel_dark_green" />
+            android:textColor="@color/black" />
 
         <Space
             android:layout_width="match_parent"
@@ -75,9 +75,10 @@
                     android:id="@+id/browse_quiz_description"
                     android:layout_width="match_parent"
                     android:layout_height="59dp"
-                    android:background="@color/pastel_light_green"
-                    android:backgroundTint="@color/pastel_middle_green"
+                    android:background="@color/white"
+                    android:backgroundTint="#2196F3"
                     android:gravity="center_vertical"
+                    android:textColor="@color/black"
                     android:text="@string/browse_quiz_description"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
@@ -89,15 +90,17 @@
                     android:id="@+id/browse_quiz_button_demo"
                     android:layout_width="match_parent"
                     android:layout_height="96dp"
-                    android:backgroundTint="@color/pastel_dark_green"
+                    android:backgroundTint="#2196F3"
                     android:onClick="sendReqAndLaunchRandomQuiz"
-                    android:text="@string/browse_quiz_demo" />
+                    android:text="@string/browse_quiz_demo"
+                    android:textColor="@color/black"/>
 
                 <Button
                     android:id="@+id/browse_quiz_button_1"
                     android:layout_width="match_parent"
                     android:layout_height="93dp"
-                    android:backgroundTint="@color/pastel_dark_green"
+                    android:backgroundTint="#2196F3"
+                    android:textColor="@color/black"
                     android:onClick="loadQuiz"
                     android:text="@string/browse_quiz_1" />
 
@@ -105,17 +108,19 @@
                     android:id="@+id/browse_quiz_button_2"
                     android:layout_width="match_parent"
                     android:layout_height="92dp"
-                    android:backgroundTint="@color/pastel_dark_green"
+                    android:backgroundTint="#2196F3"
                     android:onClick="loadQuiz"
+                    android:textColor="@color/black"
                     android:text="@string/browse_quiz_2" />
 
                 <Button
                     android:id="@+id/browse_quiz_button_recommended"
                     android:layout_width="match_parent"
                     android:layout_height="92dp"
-                    android:backgroundTint="@color/pastel_dark_green"
+                    android:backgroundTint="#2196F3"
                     android:onClick="sendReqAndLaunchRecommendedQuiz"
-                    android:text="@string/browse_quiz_recommended" />
+                    android:text="@string/browse_quiz_recommended"
+                    android:textColor="@color/black"/>
 
                 <Space
                     android:layout_width="match_parent"
@@ -131,8 +136,9 @@
                         android:id="@+id/browse_screen_home_button"
                         android:layout_width="163dp"
                         android:layout_height="match_parent"
-                        android:backgroundTint="@color/pastel_middle_green"
+                        android:backgroundTint="#2196F3"
                         android:onClick="goToHome"
+                        android:textColor="@color/black"
                         android:text="@string/Home" />
 
                 </LinearLayout>

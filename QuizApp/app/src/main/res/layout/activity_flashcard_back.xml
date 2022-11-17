@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pastel_lime"
-    android:backgroundTint="@color/pastel_lime">
+    android:background="@color/white"
+    android:backgroundTint="@color/white">
 
 <!--    <Button-->
 <!--        android:id="@+id/correctButton2"-->
@@ -42,7 +42,8 @@
         android:translationX="35dp"
         android:translationY="150dp"
         android:visibility="visible"
-        app:cardBackgroundColor="@color/pastel_middle_green"
+        android:textColor="@color/black"
+        app:cardBackgroundColor="#2196F3"
         app:cardElevation="0dp"
         app:cardUseCompatPadding="false"
         app:layout_anchor="@+id/cardView"
@@ -53,8 +54,8 @@
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="@string/mock_back"
-        android:textColor="@color/white"
         android:textSize="24sp"
+        android:textColor="@color/black"
         app:layout_anchor="@+id/cardView"
         app:layout_anchorGravity="center" />
 
@@ -64,27 +65,11 @@
         android:layout_height="85dp"
         android:text="@string/quiz_app_login_title"
         android:textAlignment="center"
+        android:background="#2196F3"
+        android:textColor="@color/black"
         android:textSize="48sp" />
 
-    <Button
-        android:id="@+id/submitButtonFB"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/pastel_dark_green"
-        android:text="@string/Submit"
-        android:translationX="225dp"
-        android:translationY="550dp" />
-
-    <Button
-        android:id="@+id/flipButton"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/pastel_dark_green"
-        android:text="@string/Flip"
-        android:translationX="70dp"
-        android:translationY="550dp" />
-
-<!--    <Button-->
+    <!--    <Button-->
 <!--        android:id="@+id/incorrectButton"-->
 <!--        android:layout_width="128dp"-->
 <!--        android:layout_height="wrap_content"-->
@@ -106,6 +91,26 @@
 <!--        android:translationX="150dp"-->
 <!--        android:translationY="690dp" />-->
 
+    <Button
+        android:id="@+id/submitButtonFB"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2196F3"
+        android:text="@string/Submit"
+        android:textColor="@color/black"
+        android:translationX="225dp"
+        android:translationY="500dp" />
+
+    <Button
+        android:id="@+id/flipButton"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2196F3"
+        android:text="@string/Flip"
+        android:textColor="@color/black"
+        android:translationX="70dp"
+        android:translationY="500dp" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:translationY="600dp"
@@ -116,11 +121,14 @@
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:text="Easy"
+            android:backgroundTint="#03A9F4"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/mediumButton"
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <Button
             android:id="@+id/mediumButton"
@@ -128,6 +136,8 @@
             android:layout_height="36dp"
             android:layout_gravity="center"
             android:text="Medium"
+            android:backgroundTint="#03A9F4"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -140,11 +150,99 @@
             android:layout_gravity="right"
             android:orientation="horizontal"
             android:text="Hard"
+            android:backgroundTint="#03A9F4"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.834"
             app:layout_constraintStart_toEndOf="@+id/easyButton"
             app:layout_constraintTop_toTopOf="parent" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/home_icon"
+                    android:layout_width="46dp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/history_image"
+                    android:onClick="launchHomeScreen"
+                    app:srcCompat="@drawable/home_icon" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="63dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/search_icon"
+                    android:layout_width="46dp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/history_image"
+                    app:srcCompat="@drawable/search_icon" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="21dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/analytics_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="87dp"
+                    android:contentDescription="@string/history_image"
+                    android:onClick="launchAnalytics"
+                    app:srcCompat="@drawable/analytics_icon" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/settings_icon"
+                    android:layout_width="46dp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/history_image"
+                    android:onClick="launchLoginScreen"
+                    app:srcCompat="@drawable/settings_icon" />
+            </LinearLayout>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

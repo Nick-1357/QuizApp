@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pastel_lime"
+    android:background="@color/white"
     android:backgroundTintMode="screen">
 
     <LinearLayout
@@ -14,24 +14,26 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="1dp"
+        android:backgroundTint="#03A9F4"
         android:gravity="center"
         android:orientation="horizontal"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/login_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/login_title"
-            android:layout_width="240dp"
+            android:layout_width="409dp"
             android:layout_height="156dp"
-            android:background="@color/pastel_middle_green"
+            android:background="#2196F3"
             android:contentDescription="@string/quiz_app_login_title"
             android:gravity="center"
             android:text="@string/quiz_app_login_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
@@ -65,9 +67,10 @@
             android:importantForAutofill="no"
             android:labelFor="@id/login_description"
             android:minHeight="48dp"
+            android:backgroundTint="#2196F3"
+            android:textColor="@color/black"
             android:text="@string/welcome_quiz_app"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/white"
             tools:ignore="TextContrastCheck" />
 
         <Space
@@ -80,11 +83,11 @@
             android:layout_marginLeft="150dp"
             android:layout_width="111dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/pastel_dark_green"
+            android:backgroundTint="#2196F3"
             android:contentDescription="@string/welcome_button"
             android:onClick="submitCredentials"
             android:text="@string/welcome_button"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHighlight="@color/pastel_dark_green"
             android:textColorHint="@color/pastel_dark_green"
             android:textColorLink="@color/pastel_dark_green"
@@ -124,8 +127,8 @@
         android:importantForAutofill="no"
         android:minHeight="48dp"
         android:text="@string/login_tagline"
+        android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="#455A64"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
