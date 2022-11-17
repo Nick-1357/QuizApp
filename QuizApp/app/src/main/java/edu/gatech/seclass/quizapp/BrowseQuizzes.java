@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -217,7 +218,13 @@ public class BrowseQuizzes extends MainActivity {
 
     //sends request for and launches random quiz
     public void sendReqAndLaunchRandomQuiz(View view) {
+<<<<<<< HEAD
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://143.215.91,212:3000/readrandom", new Response.Listener<JSONArray>() {
+=======
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.52.155.104:3000/readrandom", new Response.Listener<JSONArray>() {
+
+>>>>>>> 2be57895b74093ae17abc090d85eb030a523b3cd
             @Override
             public void onResponse(JSONArray response) {
 
@@ -238,7 +245,9 @@ public class BrowseQuizzes extends MainActivity {
     //launch recommended quiz from db
     public void sendReqAndLaunchRecommendedQuiz(View view) {
         // put in IP address of your laptop here
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.180.247.160:3000/readrecommended", new Response.Listener<JSONArray>() {
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.52.155.104:3000/readrecommended", new Response.Listener<JSONArray>() {
+
             @Override
             public void onResponse(JSONArray response) {
 

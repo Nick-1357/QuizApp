@@ -32,6 +32,7 @@ public class Login extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button create;
+    public static String ip_address = "28.61.12.151";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +80,11 @@ public class Login extends AppCompatActivity {
 
         if (view.getId() == login.getId()) {
             // update IP address of laptop here
+<<<<<<< HEAD
             String url = "http://143.215.91,212:3000/getUser/" + username.getText().toString();
+=======
+            String url = "http://10.52.155.104:3000/getUser/" + username.getText().toString();
+>>>>>>> 2be57895b74093ae17abc090d85eb030a523b3cd
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {

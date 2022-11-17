@@ -169,12 +169,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+<<<<<<< HEAD
                 android:text="TextView" />
+=======
+                />
+>>>>>>> 2be57895b74093ae17abc090d85eb030a523b3cd
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="175dp" />
+            android:layout_height="27dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -238,9 +242,10 @@
                     android:onClick="launchAnalytics"
                     app:srcCompat="@drawable/graph" />
             </LinearLayout>
+
             <Space
                 android:layout_width="30dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
             <LinearLayout
                 android:layout_width="40dp"
