@@ -58,7 +58,7 @@ class App(QMainWindow):
         self.Qwindow(content)
 
 
-    def Qwindow(self, content):
+    def Qwindow(self,content):
         self.Qwin = Window2()
 
         # Create a button in question Window
@@ -66,8 +66,10 @@ class App(QMainWindow):
         self.Qwin.button1.resize(200, 40)
         self.Qwin.button1.move(20, 250)
 
-        self.Qwin.Label = QLabel(querySql(content))
-        self.Qwin.label.setAlignment(QtCore.Qt.AlignCenter)
+
+        # self.Qwin.Label = QLabel(querySql(content))
+        # self.Qwin.label.setAlignment(QtCore.Qt.AlignCenter)
+        querySql(content)
 
         # button1 goes back to main window
         self.Qwin.button1.clicked.connect(self.initUI)
