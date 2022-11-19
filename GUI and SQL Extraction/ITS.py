@@ -12,7 +12,7 @@ def query_Sql(a):
     cursor.execute(a)
     users = cursor.fetchall()
     for user in users:
-        print(user[4])
+        return(user[4])
 
 
 cursor = myDb.cursor()
@@ -21,8 +21,9 @@ cursor = myDb.cursor()
 def querySql(prompt):
     match prompt:
         case "Chapter 1":
-            sql_select_query1 = "select * from questions where status = 'publish'  and category = 'Chapter1' ORDER by RAND() LIMIT 1"
+            sql_select_query1 = "select * from questions where status = 'publish'  and category = 'Chapter1' LIMIT 1"
             return query_Sql(sql_select_query1)
+
         case "Chapter 2":
             sql_select_query2 = "select * from questions where status = 'publish'  and category = 'Chapter2' ORDER by RAND() LIMIT 1"
             return query_Sql(sql_select_query2)

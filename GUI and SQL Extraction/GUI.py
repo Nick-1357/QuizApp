@@ -1,11 +1,12 @@
 import sys
-from PyQt5.QtWidgets import*
+from PyQt5.QtWidgets import *
 from PyQt5 import QtCore
 from ITS import querySql
 
+
 class Window2(QMainWindow):
 
-   def __init__(self):
+    def __init__(self):
         super().__init__()
         self.title = 'Question Window'
         self.left = 100
@@ -27,18 +28,17 @@ class App(QMainWindow):
         self.initUI()
 
     def initUI(self):
-
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
-        #Create combobox
+        # Create combobox
         self.combobox = QComboBox(self)
 
         item_list = ["Select Chapter", "Chapter 1", "Chapter 2", "Chapter 3", "Chapter 4", "Chapter 5", "Chapter 6",
                      "Chapter 7", "Chapter 8", "Chapter 9", "Chapter 10", "Chapter 11", "Chapter 12"]
         self.combobox.addItems(item_list)
 
-        self.combobox.move(20,20)
+        self.combobox.move(20, 20)
         self.combobox.resize(280, 40)
 
         # Create a button in the window
@@ -48,31 +48,37 @@ class App(QMainWindow):
         self.button.clicked.connect(self.clicked)
         self.show()
 
-        #Closing Question Window
+        # Closing Question Window
         self.Qwin = Window2()
         self.Qwin.close()
+
+    #Center the APP
+    # def center(self):
+    #     qr = self.frameGeometry()
+    #     cp = QDesktopWidget.availableGeometry().center()
+    #     qr.moveCenter(cp)
+    #     self.move(qr.topLeft())
 
     # Show question when the button is clicked
     def clicked(self):
         content = self.combobox.currentText()
         self.Qwindow(content)
 
-
     def Qwindow(self,content):
-        self.Qwin = Window2()
 
         # Create a button in question Window
-        self.Qwin.button1 = QPushButton('Back to chapter select', self.Qwin)
-        self.Qwin.button1.resize(200, 40)
-        self.Qwin.button1.move(20, 250)
+        self.button1 = QPushButton('Back to chapter select', self.Qwin)
+        self.button1.resize(200, 40)
+        self.button1.move(20, 250)
 
-
-        # self.Qwin.Label = QLabel(querySql(content))
-        # self.Qwin.label.setAlignment(QtCore.Qt.AlignCenter)
-        querySql(content)
+        #Show the question as a label in the window
+        text = querySql(content)
+        self.label = QLabel(text,self.Qwin)
+        self.label.adjustSize()
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
 
         # button1 goes back to main window
-        self.Qwin.button1.clicked.connect(self.initUI)
+        self.button1.clicked.connect(self.initUI)
         self.Qwin.show()
         self.close()
 
