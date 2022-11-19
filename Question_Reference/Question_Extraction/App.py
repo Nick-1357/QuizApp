@@ -9,6 +9,7 @@ from Question_reference import SlideWindow
 
 
 app = Flask(__name__)
+mysql = MySQL(app)
 
 myDb = mysql.connector.connect(
     host="localhost",
@@ -90,3 +91,6 @@ def display_questions(query):
         return "Failed to create due to this error: " + repr(error)
 
     return render_template('display_questions.html', res=res)
+    
+if __name__ == '__main__':
+    app.run(debug=True)
