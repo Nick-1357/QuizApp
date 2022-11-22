@@ -8,7 +8,7 @@ import csv
 from SlideWindow import *
 from mySimpleFilter import simpleTextCleaner
 
-dbUserInfo = "root:Sdz321654"
+dbUserInfo = "root:password"
 
 #this function will recure the raw text(with html tags) of chapter one as a single string
 def chapter1content():
