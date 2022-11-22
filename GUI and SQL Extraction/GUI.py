@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui
 from ITS import (querySql, addUser)
 
 
-plt.rc('mathtext', fontset='cm')
+#plt.rc('mathtext', fontset='cm')
 
 
 class LoginForm(QWidget):
@@ -43,7 +43,7 @@ class LoginForm(QWidget):
         self.setLayout(layout)
 
     def check_password(self):
-        #addUser(content)
+        #addUser(self.lineEdit_username, self.LineEdit_password)
         main = Window2()
         main.show()
 
