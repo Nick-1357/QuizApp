@@ -8,15 +8,17 @@ import csv
 from SlideWindow import *
 from mySimpleFilter import simpleTextCleaner
 
+dbUserInfo = "root:password"
+
 #this function will recure the raw text(with html tags) of chapter one as a single string
 def chapter1content():
-    engine = create_engine("mysql+mysqlconnector://root:Sdz321654@localhost:3306/its") #create_engine("mysql+mysqlconnector://username:password:host:port_number:database_name")
+    engine = create_engine("mysql+mysqlconnector://"+dbUserInfo+"@localhost:3306/its") #create_engine("mysql+mysqlconnector://username:password:host:port_number:database_name")
     query = pd.read_sql_query('SELECT * FROM eSPFirst where chapter=1 and meta=\'paragraph\'', engine) #put desired query to convert
     df = pd.DataFrame(query) #convert query into python data structure
     #print(df)
 
     text_list = df["content"].tolist() # convert into a series (the column containing content)
-    print(text_list)
+    #print(text_list)
     text = ""
     for te in text_list:
         text = text+" "+te
@@ -49,6 +51,10 @@ def kwsfilter(question):
     for w in kw:
         if(w[0] in question):
             kw_in.append(w)
+    kw = kwFromIndex()
+    for w in kw:
+        if(w[0] in question):
+            kw_in.append(w)
     return kw_in
 
 #this function will read the extractions.csv from '../keyword_search/extractions.csv', and return a list of [<keyword>,<weight>].
@@ -70,11 +76,39 @@ def kwsampleQkw():
     #print(f'Processed {line_count} lines.')
     return kw
 
+def kwFromIndex():
+    engine = create_engine("mysql+mysqlconnector://"+dbUserInfo+"@localhost:3306/its") #create_engine("mysql+mysqlconnector://username:password:host:port_number:database_name")
+    query = pd.read_sql_query('SELECT * FROM index_1 ', engine) #put desired query to convert
+    df = pd.DataFrame(query) #convert query into python data structure
+    #print(df)
+
+    text_list = df["name"].tolist() # convert into a series (the column containing content)
+    kw = []
+    w = []
+    for i in range(0, len(text_list)):
+        if("(" in text_list[i]):
+            a = text_list[i].index("(")
+            b = text_list[i].index(")")
+            t = [simpleTextCleaner(text_list[i][a+1:b]),5.0]
+            if t[0] not in w:
+                w.append(t[0])
+                kw.append(t)
+            t = [simpleTextCleaner(text_list[i][0:a]+text_list[i][b+1:]),5.0]
+            if t[0] not in w:
+                w.append(t[0])
+                kw.append(t)
+        else:
+            t = [simpleTextCleaner(text_list[i]),5.0]
+            if t[0] not in w:
+                w.append(t[0])
+                kw.append(t)
+    print(kw)
+    return kw
 
 def runExample():
     text = chapter1content()
-    q = 'The meaning of "negative frequency" in a Fourier series is'
-    additionalkw = [["CD",2.0],["signal",0.5]]
+    q = 'And what is the difference between a time signal and an acoustic signal?'
+    additionalkw = [["time signal",10],["acoustic signal",10]]
 
 
     print("\n")
@@ -104,7 +138,7 @@ def runExample():
     print("************************************************************************")
     print("************************Sentence_Weight_Res*****************************")
     print("************************************************************************")
-    print(res)
+    #print(res)
     print("The index of the max weight: {}".format(index))
 
     sentences = text.split(".")
@@ -121,4 +155,3 @@ def runExample():
         i=i+1
 
 runExample()
-    
