@@ -8,12 +8,26 @@ import csv
 from SlideWindow import *
 from mySimpleFilter import simpleTextCleaner
 
-dbUserInfo = "root:password"
+dbUserInfo = "root:Sdz321654"
 
 #this function will recure the raw text(with html tags) of chapter one as a single string
 def chapter1content():
     engine = create_engine("mysql+mysqlconnector://"+dbUserInfo+"@localhost:3306/its") #create_engine("mysql+mysqlconnector://username:password:host:port_number:database_name")
-    query = pd.read_sql_query('SELECT * FROM eSPFirst where chapter=1 and meta=\'paragraph\'', engine) #put desired query to convert
+    query = pd.read_sql_query('SELECT * FROM eSPFirst where chapter=3 and meta=\'paragraph\'', engine) #put desired query to convert
+    df = pd.DataFrame(query) #convert query into python data structure
+    #print(df)
+
+    text_list = df["content"].tolist() # convert into a series (the column containing content)
+    #print(text_list)
+    text = ""
+    for te in text_list:
+        text = text+" "+te
+    #print(text)
+    return simpleTextCleaner(text)
+
+def chapterContent(number):
+    engine = create_engine("mysql+mysqlconnector://"+dbUserInfo+"@localhost:3306/its") #create_engine("mysql+mysqlconnector://username:password:host:port_number:database_name")
+    query = pd.read_sql_query('SELECT * FROM eSPFirst where chapter='+number+' and meta=\'paragraph\'', engine) #put desired query to convert
     df = pd.DataFrame(query) #convert query into python data structure
     #print(df)
 
@@ -105,10 +119,14 @@ def kwFromIndex():
     print(kw)
     return kw
 
-def runExample():
-    text = chapter1content()
-    q = 'And what is the difference between a time signal and an acoustic signal?'
-    additionalkw = [["time signal",10],["acoustic signal",10]]
+def runExample(q):
+    return runExampleC(q, "1")
+
+def runExampleC(q, chapter):
+    text = chapterContent(chapter)
+    #q = 'And what is the difference between a time signal and an acoustic signal?'
+    additionalkw = []
+    print(q)
 
 
     print("\n")
@@ -148,10 +166,13 @@ def runExample():
     print("************************************************************************")
     print("**********Sample_Result,including 3 sentence before and after***********")
     print("************************************************************************")
+    returnText = "RESULT: "
     for s in sentences:
         if(i<index+3 and i>index-3):
             print("\nIndex:{}".format(i))
             print(s)
+            returnText = returnText+'<br><br>'+s
         i=i+1
+    return returnText
 
-runExample()
+#runExample("")
