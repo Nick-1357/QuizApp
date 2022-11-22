@@ -13,12 +13,12 @@ data = (df["content"].tolist())
 model_id = 'ex_BaZh3m3R'
 result = ml.extractors.extract(model_id, data)
 
-filename = 'keywordsCh3.csv'
+# filename = 'keywordsCh3.csv'
 file = "extractionsCh3.csv"
-with open(filename, 'w', newline='') as f:
-    writer = csv.writer(f)
-    for item in result.body:
-        writer.writerow([item["text"], item["external_id"], item["error"], item["extractions"]])
+# with open(filename, 'w', newline='') as f:
+#     writer = csv.writer(f)
+#     for item in result.body:
+#         writer.writerow([item["text"], item["external_id"], item["error"], item["extractions"]])
 
 
 with open(file, 'w', newline='') as f:
