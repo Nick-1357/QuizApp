@@ -9,6 +9,7 @@ from fontTools.subset import svg
 from matplotlib import pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from PyQt5 import QtCore, QtGui
+from ITS import (querySql, addUser)
 
 
 plt.rc('mathtext', fontset='cm')
@@ -42,6 +43,7 @@ class LoginForm(QWidget):
         self.setLayout(layout)
 
     def check_password(self):
+        #addUser(content)
         main = Window2()
         main.show()
 

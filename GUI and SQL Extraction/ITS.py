@@ -22,40 +22,80 @@ def querySql(prompt):
     match prompt:
         case "Chapter 1":
             sql_select_query1 = "select * from questions where status = 'publish'  and category = 'Chapter1' LIMIT 1"
-            return query_Sql(sql_select_query1)
+            question = query_Sql(sql_select_query1)
+            attempted(question)
+            return question
 
         case "Chapter 2":
             sql_select_query2 = "select * from questions where status = 'publish'  and category = 'Chapter2' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query2)
+            question = query_Sql(sql_select_query2)
+            attempted(question)
+            return question
+
         case "Chapter 3":
             sql_select_query3 = "select * from questions where status = 'publish'  and category = 'Chapter3' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query3)
+            question = query_Sql(sql_select_query3)
+            attempted(question)
+            return question
+
         case "Chapter 4":
             sql_select_query4 = "select * from questions where status = 'publish'  and category = 'Chapter4' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query4)
+            question = query_Sql(sql_select_query4)
+            attempted(question)
+            return question
+
         case "Chapter 5":
             sql_select_query5 = "select * from questions where status = 'publish'  and category = 'Chapter5' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query5)
+            question = query_Sql(sql_select_query5)
+            attempted(question)
+            return question
+
         case "Chapter 6":
             sql_select_query6 = "select * from questions where status = 'publish'  and category = 'Chapter6' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query6)
+            question = query_Sql(sql_select_query6)
+            attempted(question)
+            return question
+
         case "Chapter 7":
             sql_select_query7 = "select * from questions where status = 'publish'  and category = 'Chapter7' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query7)
+            question = query_Sql(sql_select_query7)
+            attempted(question)
+            return question
+
         case "Chapter 8":
             sql_select_query8 = "select * from questions where status = 'publish'  and category LIKE 'Chapter8%' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query8)
+            question = query_Sql(sql_select_query8)
+            attempted(question)
+            return question
+
         case "Chapter 9":
             sql_select_query9 = "select * from questions where status = 'publish'  and category LIKE 'Chapter9%' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query9)
+            question = query_Sql(sql_select_query9)
+            attempted(question)
+            return question
+
         case "Chapter 10":
             sql_select_query10 = "select * from questions where status = 'publish'  and category LIKE 'Chapter10%' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query10)
+            question = query_Sql(sql_select_query10)
+            attempted(question)
+            return question
+
         case "Chapter 11":
             sql_select_query11 = "select * from questions where status = 'publish'  and category LIKE 'Chapter11%' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query11)
+            question = query_Sql(sql_select_query11)
+            attempted(question)
+            return question
+
         case "Chapter 12":
             sql_select_query12 = "select * from questions where status = 'publish'  and category LIKE 'Chapter12%' ORDER by RAND() LIMIT 1"
-            return query_Sql(sql_select_query12)
+            question =  query_Sql(sql_select_query12)
+            attempted(question)
+            return question
         case _:
             print("Selection invalid")
+
+def addUser(username, password):
+    pass
+
+def attempted(content):
+    pass
