@@ -1,7 +1,60 @@
 import sys
+import re
+from io import BytesIO
+
+from PyQt5.QtSvg import QSvgWidget
 from PyQt5.QtWidgets import *
-from PyQt5 import QtCore
-from ITS import querySql
+import matplotlib as mpl
+from fontTools.subset import svg
+from matplotlib import pyplot as plt
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+from PyQt5 import QtCore, QtGui
+
+
+plt.rc('mathtext', fontset='cm')
+
+
+class LoginForm(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle('Login Form')
+        self.resize(500, 120)
+
+        layout = QGridLayout()
+
+        label_name = QLabel('<font size="4"> Username </font>')
+        self.lineEdit_username = QLineEdit()
+        self.lineEdit_username.setPlaceholderText('Please enter your username')
+        layout.addWidget(label_name, 0, 0)
+        layout.addWidget(self.lineEdit_username, 0, 1)
+
+        label_password = QLabel('<font size="4"> Password </font>')
+        self.lineEdit_password = QLineEdit()
+        self.lineEdit_password.setPlaceholderText('Please enter your password')
+        layout.addWidget(label_password, 1, 0)
+        layout.addWidget(self.lineEdit_password, 1, 1)
+
+        button_login = QPushButton('Login')
+        button_login.clicked.connect(self.check_password)
+        layout.addWidget(button_login, 2, 0, 1, 2)
+        layout.setRowMinimumHeight(2, 75)
+
+        self.setLayout(layout)
+
+    def check_password(self):
+        main = Window2()
+        main.show()
+
+        # Closing Question Window
+
+
+        # if self.lineEdit_username.text() == 'Usernmae' and self.lineEdit_password.text() == '000':
+            # msg.setText('Success')
+            # msg.exec_()
+            # app.quit()
+        # else:
+        #     msg.setText('Incorrect Password')
+        #     msg.exec_()
 
 
 class Window2(QMainWindow):
@@ -15,6 +68,7 @@ class Window2(QMainWindow):
         self.height = 300
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
+
 
 class App(QMainWindow):
 
@@ -52,7 +106,21 @@ class App(QMainWindow):
         self.Qwin = Window2()
         self.Qwin.close()
 
-    #Center the APP
+    # def tex2svg(self):
+    #     self.fontsize = 12
+    #     self.dpi = 300
+    #     fig = plt.figure(figsize=(0.01, 0.01))
+    #     fig.text(0, 0, r'${}$'.format(self.formula), fontsize=self.fontsize)
+    #
+    #     output = BytesIO()
+    #     fig.savefig(output, dpi=self.dpi, transparent=True, format='svg',
+    #                 bbox_inches='tight', pad_inches=0.0, frameon=False)
+    #     plt.close(fig)
+    #
+    #     output.seek(0)
+    #     return output.read()
+
+    # Center the APP
     # def center(self):
     #     qr = self.frameGeometry()
     #     cp = QDesktopWidget.availableGeometry().center()
@@ -64,18 +132,19 @@ class App(QMainWindow):
         content = self.combobox.currentText()
         self.Qwindow(content)
 
-    def Qwindow(self,content):
-
+    def Qwindow(self, content):
         # Create a button in question Window
         self.button1 = QPushButton('Back to chapter select', self.Qwin)
         self.button1.resize(200, 40)
         self.button1.move(20, 250)
 
-        #Show the question as a label in the window
-        text = querySql(content)
-        self.label = QLabel(text,self.Qwin)
+        # Show the question as a label in the window
+        #text = querySql(content)
+        #self.label = QLabel(text, self.Qwin)
         self.label.adjustSize()
         self.label.setAlignment(QtCore.Qt.AlignCenter)
+
+        svg.load(self.tex2svg(self.fontsize))
 
         # button1 goes back to main window
         self.button1.clicked.connect(self.initUI)
@@ -83,7 +152,16 @@ class App(QMainWindow):
         self.close()
 
 
-if __name__ == '__main__':
+def main():
+
     app = QApplication(sys.argv)
-    ex = App()
+    form = LoginForm()
+    form.show()
+
+    #svg = QSvgWidget()
+    #svg.show()
+
     sys.exit(app.exec_())
+
+if __name__ == '__main__':
+    main()
