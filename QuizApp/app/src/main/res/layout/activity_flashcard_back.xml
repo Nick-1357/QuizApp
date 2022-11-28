@@ -8,15 +8,6 @@
     android:background="@color/pastel_lime"
     android:backgroundTint="@color/pastel_lime">
 
-<!--    <Button-->
-<!--        android:id="@+id/correctButton2"-->
-<!--        android:layout_width="128dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:backgroundTint="@color/pastel_middle_green"-->
-<!--        android:text="@string/Correct"-->
-<!--        android:translationX="70dp"-->
-<!--        android:translationY="480dp" />-->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
@@ -33,6 +24,24 @@
         class="androidx.cardview.widget.CardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Switch
+            android:id="@+id/flashcardbackswitch"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/Review"
+            android:textOff="@string/Review"
+            android:textOn="@string/Review"
+            android:textSize="17dp"
+            android:translationX="150dp"
+            android:translationY="490dp" />
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -84,37 +93,16 @@
         android:translationX="70dp"
         android:translationY="550dp" />
 
-<!--    <Button-->
-<!--        android:id="@+id/incorrectButton"-->
-<!--        android:layout_width="128dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:backgroundTint="@color/coral"-->
-<!--        android:text="@string/Incorrect"-->
-<!--        android:translationX="225dp"-->
-<!--        android:translationY="480dp" />-->
-
-
-<!--    <Switch-->
-<!--        android:id="@+id/flashcardbackswitch"-->
-<!--        android:layout_width="128dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:minHeight="48dp"-->
-<!--        android:text="@string/Review"-->
-<!--        android:textOff="@string/Review"-->
-<!--        android:textOn="@string/Review"-->
-<!--        android:textSize="17dp"-->
-<!--        android:translationX="150dp"-->
-<!--        android:translationY="690dp" />-->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:translationY="600dp"
-        android:layout_height="80dp">
+        android:layout_height="80dp"
+        android:translationY="600dp">
 
         <Button
+
             android:id="@+id/easyButton"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="48dp"
             android:text="Easy"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/mediumButton"
@@ -125,7 +113,7 @@
         <Button
             android:id="@+id/mediumButton"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:text="Medium"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -136,7 +124,7 @@
         <Button
             android:id="@+id/hardButton"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="48dp"
             android:layout_gravity="right"
             android:orientation="horizontal"
             android:text="Hard"
@@ -147,8 +135,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
