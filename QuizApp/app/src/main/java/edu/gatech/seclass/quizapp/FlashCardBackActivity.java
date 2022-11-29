@@ -1,6 +1,7 @@
 package edu.gatech.seclass.quizapp;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import static edu.gatech.seclass.quizapp.MainActivity.currentUser;
 
@@ -18,13 +19,16 @@ public class FlashCardBackActivity extends AppCompatActivity implements Serializ
 
     private Button submitButton;
     private Button flipButton;
-    private Button correctButton;
-    private Button incorrectButton;
     private String frontText;
     private String backText;
     private FlashCardQuestion flashCardQuestion;
     private int correct;
     private Switch toggleSwitch;
+    private Button easyButton;
+    private Button mediumButton;
+    private Button hardButton;
+    private ArrayList<Integer> difficultyLevel = new ArrayList<>();
+    private int currentAnswer;
 
     private boolean isAnswered;
 
@@ -50,22 +54,34 @@ public class FlashCardBackActivity extends AppCompatActivity implements Serializ
     }
 
     private void initializeButtons() {
-        incorrectButton = (Button) findViewById(R.id.incorrectButton);
-        incorrectButton.setOnClickListener(view -> {
-            markIncorrect();
-            isAnswered = true;
+        currentAnswer = -1;
+
+        easyButton = (Button) findViewById(R.id.easyButton);
+        mediumButton = (Button) findViewById(R.id.mediumButton);
+        hardButton = (Button) findViewById(R.id.hardButton);
+
+        easyButton.setOnClickListener(view -> {
+            currentAnswer = 1;
+            System.out.println("currentAnswer is " + currentAnswer);
         });
 
-        correctButton = (Button) findViewById(R.id.correctButton2);
-        correctButton.setOnClickListener(view -> {
-            markCorrect();
-            isAnswered= true;
+        mediumButton.setOnClickListener(view -> {
+            currentAnswer = 3;
+            System.out.println("currentAnswer is " + currentAnswer);
+        });
+
+        hardButton.setOnClickListener(view -> {
+            currentAnswer = 5;
+            System.out.println("currentAnswer is " + currentAnswer);
         });
 
         submitButton = (Button) findViewById(R.id.submitButtonFB);
         submitButton.setOnClickListener(view -> {
-            if (isAnswered){
+            if (currentAnswer > 0){
                 System.out.println("correct: "+correct);
+                System.out.println("Submitted answer is " + currentAnswer);
+                difficultyLevel.add(currentAnswer);
+                currentAnswer = -1;
                 submitFunctionality();
             }
         });
