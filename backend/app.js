@@ -126,19 +126,6 @@ app.get(
 							? questionsToReturn.push(questions[newNum])
 							: NaN;
 					}
-					console.log(
-						questionsToReturn.forEach((question) => {
-							console.log(
-								'ID: ' +
-									question.id +
-									', ' +
-									question.question +
-									' \nAns: ' +
-									question.answer
-							);
-						})
-					);
-					console.log(questionsToReturn.length + ' questions returned');
 					res.send(questionsToReturn);
 				} else {
 					questions = questions.splice(
@@ -180,12 +167,13 @@ app.get('/findQuestionAttempt/:userId/:qId', (req, res) => {
 	})
 		.then((questionAttempt) => {
 			if (questionAttempt.length == 0) {
+				const currentDate = new Date();
 				var newQuestionAttempt = {
 					questionId: req.params.qId,
 					userId: req.params.userId,
 					repetitions: 0,
 					easeFactor: 2.5,
-					interval: 0,
+					interval: currentDate,
 				};
 				console.log(newQuestionAttempt);
 				db.collection('QuestionAttempt').insert(newQuestionAttempt);
@@ -221,14 +209,21 @@ app.get(
 			} else if (attempt.repetitions == 1) {
 				interval = 6;
 			} else {
-				interval = Math.ceil(attempt.interval * attempt.easeFactor);
+				const currentDate = new Date();
+				interval = Math.ceil(
+					Math.round(
+						(attempt.interval.getTime() - currentDate.getTime()) /
+							(1000 * 3600 * 24)
+					) * attempt.easeFactor
+				);
 			}
-			attempt.interval = interval;
+			attempt.interval.setDate(attempt.interval.getDate() + interval);
+			attempt.interval = attempt.interval;
 			attempt.repetitions += 1;
 			attempt.easeFactor += 0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02);
 		} else if (quality < 3) {
 			attempt.repetitions = 0;
-			attempt.interval = 1;
+			attempt.interval.setDate(attempt.interval.getDate() + 1);
 		}
 		attempt.easeFactor = Math.max(attempt.easeFactor, 1.3);
 		QuestionAttempt.updateOne({ _id: req.params.questionAttemptId }, attempt)

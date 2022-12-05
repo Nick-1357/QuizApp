@@ -48,6 +48,12 @@ public class FlashCardBackActivity extends AppCompatActivity implements Serializ
         if (isAnswered) {
             correct = getIntent().getExtras().getInt("recordedAnswer");
         }
+        flashCardQuestion = (FlashCardQuestion) getIntent().getSerializableExtra("flashCard");
+        isAnswered = getIntent().getExtras().getBoolean("isAnswered");
+
+        if (isAnswered) {
+            correct = getIntent().getExtras().getInt("recordedAnswer");
+        }
 
         textView.setText(backText);
         initializeButtons();

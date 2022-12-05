@@ -220,7 +220,7 @@ public class BrowseQuizzes extends MainActivity {
     //sends request for and launches random quiz
     public void sendReqAndLaunchRandomQuiz(View view) {
         System.out.println(" Send Req and launch Random quiz");
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://128.61.63.238:3000/readrandom", new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.52.80.55:3000/readrandom", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
@@ -242,7 +242,7 @@ public class BrowseQuizzes extends MainActivity {
     //launch recommended quiz from db
     public void sendReqAndLaunchRecommendedQuiz(View view) {
         // put in IP address of your laptop here
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.0.0.2:3000/readrecommended", new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.52.80.55:3000/readrecommended", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
@@ -290,18 +290,15 @@ public class BrowseQuizzes extends MainActivity {
      * @param view  current view
      */
 
-    public void sendReqAndLaunchQuiz(View view) {
+    public void requestQuizAppQuiz(View view) {
         JsonArrayRequest jsonArrayRequest =
-                new JsonArrayRequest("http://128.61.53.131:3000/readChapterQuestions/f/2/0/10",
+                new JsonArrayRequest("http://10.52.80.55:3000/readChapterQuestions/f/1/10",
                         new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                try {
-                    JSONObject o = (JSONObject) (response.get(0));
-                    System.out.println(o.get("_id").toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                QuizAppQuiz quiz = JsonUtil.parseQuizAppQuiz(response);
+                System.out.println("Quiz Parsed");
+                launchQuizAppQuiz(quiz);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -312,5 +309,17 @@ public class BrowseQuizzes extends MainActivity {
         });
         SingletonRequestQueue.getInstance(this).getRequestQueue().getCache().clear();
         SingletonRequestQueue.getInstance(this).getRequestQueue().add(jsonArrayRequest);
+    }
+
+    /**
+     * Launches the flashcard screen to begin the quiz.
+     *
+     * @param quiz current view
+     */
+
+    public void launchQuizAppQuiz(QuizAppQuiz quiz) {
+        currentUser.currentQuizAppQuiz = quiz;
+        Intent intent = new Intent(BrowseQuizzes.this, FlashCardFrontActivity2.class);
+        startActivity(intent);
     }
 }

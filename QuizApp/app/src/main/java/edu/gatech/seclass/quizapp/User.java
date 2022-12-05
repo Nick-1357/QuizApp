@@ -11,6 +11,7 @@ public class User {
     public QuizAttempt[] pastQuizzes;
     public QuizAttempt currentQuizAttempt;
     public Quiz currentQuiz;
+    public QuizAppQuiz currentQuizAppQuiz;
     public Bitmap pfp;
 
     public boolean isCredentials() {

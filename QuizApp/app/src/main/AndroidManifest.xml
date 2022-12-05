@@ -43,6 +43,12 @@
             android:name=".FlashCardBackActivity"
             android:exported="true" />
         <activity
+            android:name=".FlashCardFrontActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".FlashCardBackActivity2"
+            android:exported="true" />
+        <activity
             android:name=".MultipleChoiceActivity"
             android:exported="true" />
         <activity

@@ -5,7 +5,7 @@ const QuestionAttemptSchema = new mongoose.Schema({
 	userId: String,
 	repetitions: Number,
 	easeFactor: Number,
-	interval: Number,
+	interval: Date,
 });
 module.exports = mongoose.model(
 	'QuestionAttempt',
