@@ -44,7 +44,7 @@ def chapterContent(number):
 def kwsFromExtractions():
     kw = []
     w = []
-    with open('../keyword_search/extractions.csv',mode='r') as csv_file:
+    with open('../../keyword_search/extractions.csv',mode='r') as csv_file:
         csv_reader = csv.reader(csv_file)
         line_count = 0
         for row in csv_reader:
@@ -76,7 +76,7 @@ def kwsfilter(question):
 def kwsampleQkw():
     kw = []
     w = []
-    with open('../keyword_search/question_extractions.csv',mode='r') as csv_file:
+    with open('../../keyword_search/question_extractions.csv',mode='r') as csv_file:
         csv_reader = csv.reader(csv_file)
         line_count = 0
         for row in csv_reader:

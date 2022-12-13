@@ -77,6 +77,7 @@ class App(QMainWindow):
 
         text = text +'<br><br><br>'+runExampleC(text, ""+content[-1])
 
+        print(text)
         self.label = QLabel(text,self.Qwin)
         self.label.setWordWrap(True)
         self.label.adjustSize()
