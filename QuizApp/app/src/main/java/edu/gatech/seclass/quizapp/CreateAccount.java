@@ -156,7 +156,11 @@ public class CreateAccount extends AppCompatActivity  {
 
             final JSONObject reqBody = JsonUtil.convertUser(user);
             // change endpoint
+<<<<<<< HEAD
+            String url = "http://143.215.91,212:3000/recordUser";
+=======
             String url = "http://10.52.155.104:3000/recordUser";
+>>>>>>> 2be57895b74093ae17abc090d85eb030a523b3cd
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {

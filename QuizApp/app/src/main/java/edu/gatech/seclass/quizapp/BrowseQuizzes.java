@@ -218,9 +218,13 @@ public class BrowseQuizzes extends MainActivity {
 
     //sends request for and launches random quiz
     public void sendReqAndLaunchRandomQuiz(View view) {
+<<<<<<< HEAD
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://143.215.91,212:3000/readrandom", new Response.Listener<JSONArray>() {
+=======
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://10.52.155.104:3000/readrandom", new Response.Listener<JSONArray>() {
 
+>>>>>>> 2be57895b74093ae17abc090d85eb030a523b3cd
             @Override
             public void onResponse(JSONArray response) {
 

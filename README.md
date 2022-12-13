@@ -101,6 +101,11 @@ These files are the schemas/models for the appropriate classes/collections being
 - Samarth Parameswar
 - Sanjit Pingili
 - Sahana Krishnan
+<<<<<<< HEAD
+- Krishan Patel
+- Sakshi Deshpande
+=======
+>>>>>>> 2be57895b74093ae17abc090d85eb030a523b3cd
 - Abdulaziz Memesh
 - Rishi Nopany
 - Shreekrishna Bhat
