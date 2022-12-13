@@ -6,6 +6,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import java.util.ArrayList;
 
 public final class JsonUtil {
@@ -132,4 +136,38 @@ public final class JsonUtil {
         }
         return null;
     }
+
+    /**
+     * Create an entire quiz based on a JSON response object
+     */
+    public static QuizAppQuiz parseQuizAppQuiz(JSONArray array) {
+        QuizAppQuiz quiz = new QuizAppQuiz();
+        try {
+            for (int i = 0; i < array.length(); i++) {
+                quiz.addQuestion(parseQuizAppQuestion(array.getJSONObject(i)));
+            }
+        } catch (JSONException error) {
+            System.out.println("Error caused in parseQuizAppQuiz: " + error);
+        }
+        return quiz;
+    }
+
+    /**
+     * Parse a JSON response and create individual QuizAppQuestionAttempt objects
+     */
+    private static QuizAppQuestion parseQuizAppQuestion(JSONObject object) {
+        try {
+            String id = object.getString("_id");
+            String question = object.getString("question");
+            String answer = object.getString("answer");
+            int chapter = object.getInt("chapter");
+            int section = object.getInt("section");
+            QuizAppQuestion attempt = new QuizAppQuestion(id, question, answer, chapter, section);
+            return attempt;
+        } catch (Exception error) {
+            System.out.println(error);
+        }
+        return null;
+    }
+
 }

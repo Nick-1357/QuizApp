@@ -32,6 +32,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class BrowseQuizzes extends MainActivity {
     private Button demo_quiz;
@@ -222,12 +224,13 @@ public class BrowseQuizzes extends MainActivity {
             public void onResponse(JSONArray response) {
 
                 Quiz quiz = JsonUtil.parseQuiz(response);
+                System.out.println(quiz + " XXXXXX ");
                 launchParsedQuiz(quiz);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("error: " + error);
+                System.out.println("error1: " + error);
 
             }
         });
@@ -280,4 +283,42 @@ public class BrowseQuizzes extends MainActivity {
         startActivity(intent);
     }
 
+    /**
+     * Sends a request for quizzes from a certain chapter and section.
+     *
+     * @param view  current view
+     */
+
+    public void requestQuizAppQuiz(View view) {
+        JsonArrayRequest jsonArrayRequest =
+                new JsonArrayRequest("http://10.52.80.55:3000/readChapterQuestions/f/1/10",
+                        new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                QuizAppQuiz quiz = JsonUtil.parseQuizAppQuiz(response);
+                System.out.println("Quiz Parsed");
+                launchQuizAppQuiz(quiz);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("error1: " + error);
+
+            }
+        });
+        SingletonRequestQueue.getInstance(this).getRequestQueue().getCache().clear();
+        SingletonRequestQueue.getInstance(this).getRequestQueue().add(jsonArrayRequest);
+    }
+
+    /**
+     * Launches the flashcard screen to begin the quiz.
+     *
+     * @param quiz current view
+     */
+
+    public void launchQuizAppQuiz(QuizAppQuiz quiz) {
+        currentUser.currentQuizAppQuiz = quiz;
+        Intent intent = new Intent(BrowseQuizzes.this, FlashCardFrontActivity2.class);
+        startActivity(intent);
+    }
 }

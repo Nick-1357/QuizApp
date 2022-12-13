@@ -32,7 +32,11 @@ public class FlashCardFrontActivity extends AppCompatActivity implements Seriali
         textView = (TextView) findViewById(R.id.frontText);
         helpButton = (Button) findViewById(R.id.helpButtonSA);
 
+        QuizAppQuestion question = (QuizAppQuestion) (currentUser.currentQuizAppQuiz.getCurrentQuestion());
+        frontText = question.question;
+
         // if coming from hint
+
         if (getIntent().getExtras() == null) {
             flashCardQuestion = (FlashCardQuestion) (currentUser.currentQuiz.getCurrentQuestion());
             frontText = flashCardQuestion.questionText;

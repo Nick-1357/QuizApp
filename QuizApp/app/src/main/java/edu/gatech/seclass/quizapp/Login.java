@@ -83,6 +83,7 @@ public class Login extends AppCompatActivity {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
+                    System.out.println("Yes you reached here.");
                     User userFromDB = JsonUtil.parseUser(response);
                     String enteredPass = password.getText().toString();
                     String passDB = userFromDB.getPassword();
@@ -106,6 +107,7 @@ public class Login extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    System.out.println("No you didn't reach here");
                     if (error.getClass().toString().equals("class com.android.volley.ParseError")) {
                         Context context = getApplicationContext();
                         CharSequence text = "user: " + username.getText().toString() + " not found";
