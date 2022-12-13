@@ -89,7 +89,7 @@ def querySql(prompt):
 
         case "Chapter 12":
             sql_select_query12 = "select * from questions where status = 'publish'  and category LIKE 'Chapter12%' ORDER by RAND() LIMIT 1"
-            question = query_Sql(sql_select_query12)
+            (question_id, question) = query_Sql(sql_select_query12)
             attempted(question)
             return question
         case _:
