@@ -142,7 +142,7 @@ public class CreateAccount extends AppCompatActivity  {
 
             final JSONObject reqBody = JsonUtil.convertUser(user);
             // change endpoint
-            String url = "http://128.61.58.54:3000/recordUser";
+            String url = "http://" + Login.ipa + ":3000/recordUser";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {

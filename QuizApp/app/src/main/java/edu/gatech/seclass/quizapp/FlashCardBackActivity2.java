@@ -132,7 +132,7 @@ public class FlashCardBackActivity2 extends AppCompatActivity implements Seriali
     public void findQuestionAttempt(String questionId, int difficulty) {
         int quality = 5 - difficulty;
         JsonArrayRequest jsonArrayRequest =
-                new JsonArrayRequest("http://10.52.80.55:3000/findQuestionAttempt/" + currentUser.userID + "/" + questionId,
+                new JsonArrayRequest("http://" + Login.ipa + ":3000/findQuestionAttempt/" + currentUser.userID + "/" + questionId,
                         new Response.Listener<JSONArray>() {
                             @Override
                             public void onResponse(JSONArray response) {
@@ -160,7 +160,7 @@ public class FlashCardBackActivity2 extends AppCompatActivity implements Seriali
 
     public void updateQuestionAttempt(String questionAttemptId, int quality) {
         JsonObjectRequest jsonArrayRequest =
-                new JsonObjectRequest("http://10.52.80.55:3000/updateQuestionAttempt/"
+                new JsonObjectRequest("http://" + Login.ipa + ":3000/updateQuestionAttempt/"
                         + questionAttemptId +"/" + quality, null,
                         new Response.Listener<JSONObject>() {
                             @Override
