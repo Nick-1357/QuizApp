@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button create;
-    public static String ip_address = "28.61.12.151";
+    public static String ipa = "128.61.52.66"; // IP Address
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,14 +80,11 @@ public class Login extends AppCompatActivity {
 
         if (view.getId() == login.getId()) {
             // update IP address of laptop here
-<<<<<<< HEAD
-            String url = "http://143.215.91,212:3000/getUser/" + username.getText().toString();
-=======
-            String url = "http://10.52.155.104:3000/getUser/" + username.getText().toString();
->>>>>>> 2be57895b74093ae17abc090d85eb030a523b3cd
+            String url = "http://" + Login.ipa + ":3000/getUser/" + username.getText().toString();
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
+                    System.out.println("Yes you reached here.");
                     User userFromDB = JsonUtil.parseUser(response);
                     String enteredPass = password.getText().toString();
                     String passDB = userFromDB.getPassword();
@@ -111,6 +108,7 @@ public class Login extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    System.out.println("No you didn't reach here");
                     if (error.getClass().toString().equals("class com.android.volley.ParseError")) {
                         Context context = getApplicationContext();
                         CharSequence text = "user: " + username.getText().toString() + " not found";

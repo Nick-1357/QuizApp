@@ -32,10 +32,6 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-
-
-
-
 public class CreateAccount extends AppCompatActivity  {
     private Button create;
     private Button browse;
@@ -122,18 +118,11 @@ public class CreateAccount extends AppCompatActivity  {
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
             finish();
-            Toast.makeText(CreateAccount.this,
-                    "Email sent", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CreateAccount.this,"Email sent", Toast.LENGTH_SHORT).show();
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(CreateAccount.this,
                     "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
-
-
-
-
-
-
 
         // check if userId, name, password are blank
         boolean usernameBlank = username.getText().toString().length()==0;
@@ -156,11 +145,7 @@ public class CreateAccount extends AppCompatActivity  {
 
             final JSONObject reqBody = JsonUtil.convertUser(user);
             // change endpoint
-<<<<<<< HEAD
-            String url = "http://143.215.91,212:3000/recordUser";
-=======
-            String url = "http://10.52.155.104:3000/recordUser";
->>>>>>> 2be57895b74093ae17abc090d85eb030a523b3cd
+            String url = "http://" + Login.ipa + ":3000/recordUser";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {

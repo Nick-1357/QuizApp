@@ -101,7 +101,7 @@
                     android:layout_height="93dp"
                     android:backgroundTint="#2196F3"
                     android:textColor="@color/black"
-                    android:onClick="loadQuiz"
+                    android:onClick="requestQuizAppQuiz"
                     android:text="@string/browse_quiz_1" />
 
                 <Button

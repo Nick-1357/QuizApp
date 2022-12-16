@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/white"
     tools:context=".MainActivity">
-
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="729dp"
@@ -36,14 +35,14 @@
                 android:textColorHint="@color/black" />
 
             <ImageView
-                android:id="@+id/loginPfp"
+                android:id="@+id/profile_placeholder"
                 android:layout_width="123dp"
                 android:layout_height="66dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="13dp"
-                android:background="black"
+                android:background="#2196F3"
                 android:contentDescription="@string/history_image"
                 android:gravity="right"
                 android:onClick="launchBrowseQuizzes"
@@ -164,31 +163,28 @@
                     android:textSize="20sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/outputText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-<<<<<<< HEAD
-                android:text="TextView" />
-=======
-                />
->>>>>>> 2be57895b74093ae17abc090d85eb030a523b3cd
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/outputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="27dp" />
+            android:layout_height="141dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            android:orientation="horizontal"
-            android:background="@drawable/customborder"
-            >
+            android:background="@color/white"
+            android:orientation="horizontal">
+
             <Space
                 android:layout_width="30dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
             <LinearLayout
                 android:layout_width="20dp"
@@ -201,8 +197,7 @@
                     android:layout_width="46dp"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/history_image"
-                    android:onClick="launchHomeScreen"
-                    app:srcCompat="@drawable/Home" />
+                    app:srcCompat="@drawable/home_icon" />
             </LinearLayout>
 
             <Space
@@ -220,7 +215,7 @@
                     android:layout_width="46dp"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/history_image"
-                    app:srcCompat="@drawable/Search" />
+                    app:srcCompat="@drawable/search_icon" />
             </LinearLayout>
 
             <Space
@@ -258,8 +253,7 @@
                     android:layout_width="46dp"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/history_image"
-                    android:onClick="launchLoginScreen"
-                    app:srcCompat="@drawable/Settings" />
+                    app:srcCompat="@drawable/settings_icon" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
