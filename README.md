@@ -126,5 +126,5 @@ These files are the schemas/models for the appropriate classes/collections being
 - Rishi Nopany
 - Shreekrishna Bhat
 
-## [Figma prototype link](https://www.figma.com/proto/cyFwvVE3NVjJ2dUXdFskBr/Quiz-App-Real?node-id=304%3A5&scaling=scale-down&page-id=0%3A1&starting-point-node-id=304%3A5)
+## [Figma design link](https://www.figma.com/file/cyFwvVE3NVjJ2dUXdFskBr/Quiz-App-Real?node-id=407%3A646&t=Y3GA2Te2pDjtn5sQ-3)
 ## [Google Drive documents link](https://drive.google.com/drive/folders/1YuEzk9bqs9OlKFzzpGeBEcoXmXfVXOD9?usp=sharing)
