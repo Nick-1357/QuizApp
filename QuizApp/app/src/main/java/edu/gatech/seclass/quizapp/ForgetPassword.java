@@ -78,7 +78,7 @@ public class ForgetPassword extends AppCompatActivity {
         } else {
             // make sure the userid is valid.
             // make sure the user's old password isn't equal to user's new password
-            String url = "http://128.61.112.149:3000/getUser/" + new_username.getText().toString();
+            String url = "http://" + Login.ipa + ":3000/getUser/" + new_username.getText().toString();
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
