@@ -118,7 +118,7 @@ public class ForgetPassword extends AppCompatActivity {
     }
 
     public void updateUserDBPassword(String newPass) {
-        String url = "http:/128.61.112.149:3000/updatePassword/" + new_username.getText().toString() + "/" + newPass;
+        String url = "http:/" + Login.ipa + ":3000/updatePassword/" + new_username.getText().toString() + "/" + newPass;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
