@@ -146,6 +146,7 @@ def runExampleC(q, chapter):
     weight = []
     for w in additionalkw:
         kws.append(w);
+    for w in kws:
         words.append(w[0])
         weight.append(w[1])
     print(kws)
